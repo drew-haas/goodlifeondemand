@@ -22,8 +22,6 @@ export default {
 
 <style lang="scss">
 // "global" styles
-$green: #42b983;
-
 body {
     margin: 0;
 }

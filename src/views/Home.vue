@@ -57,6 +57,7 @@ export default {
 
 
 <style lang="scss">
+$accent: #FF9683;
 $screen-sm: 767px;
 $screen-xs: 500px;
 
@@ -81,7 +82,7 @@ $screen-xs: 500px;
             transition: color .3s;
 
             &:hover {
-                color: #42b983;
+                color: $accent;
                 transition: color .3s;
             }
         }
