@@ -28,8 +28,17 @@ body {
     margin: 0;
 }
 
+h1, h2, h3, h4, h5 {
+    font-family: 'Playfair', serif;
+    font-weight: 300;
+}
+
 h2 {
     margin-bottom: 0;
+}
+
+p {
+    line-height: 1.6;
 }
 
 .subtitle {

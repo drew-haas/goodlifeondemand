@@ -6,15 +6,14 @@
     <div class="page-wrapper">
         <div class="home-view-hero">
             <h1 class="title">Welcome to Good Life On Demand Productions</h1>
-            <div class="subtitle">Good Life on Demand is here to provide a film truly personal and authentic for the most
+            <p class="subtitle">Good Life on Demand is here to provide a film truly personal and authentic for the most
     significant day in a couple’s existence. We are a Pittsburgh and Los Angeles based
     videographers who are contracted all across the continental US. If you are planning a wedding
     with a concrete layout to celebrate the love of two people and rejoice with your friends and
-    family, Good Life on Demand may be the perfect fit for you!</div>
+    family, Good Life on Demand may be the perfect fit for you!</p>
         </div>
         <div class="callout-work">
             <h2 class="callout-work-title">Our Work</h2>
-            <!-- <p class="callout-work-subtitle subtitle">Check out some recent projects</p> -->
             <div class="callout-work-items">
                 <div class="callout-work-item" v-for="item in workItems" :key="item.id">{{item.title}}</div>
             </div>
@@ -45,11 +44,6 @@ export default {
                 {
                     id: 3,
                     title: 'title3',
-                    path: '',
-                },
-                {
-                    id: 4,
-                    title: 'title4',
                     path: '',
                 }
             ]
@@ -133,7 +127,7 @@ $screen-xs: 500px;
 
     &-work-items {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         max-width: 700px;
         margin: 40px auto 0;
         grid-gap: 1em;
