@@ -2,6 +2,7 @@
     <div id="nav" class="nav" :class="[ this.$attrs.lightNav ? 'nav-light' : '' ]">
         <div class="nav-wrapper">
             <router-link to="/" class="logo">
+                <!-- <img src="../assets/img/glod-logo.png" alt="Good Life on Demand Logo"> -->
                 <img src="../assets/logo.png" alt="Good Life on Demand Logo">
             </router-link>
             <div class="links">
