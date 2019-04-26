@@ -1,5 +1,6 @@
 # goodlifeondemand
 Website for Good Life on Demand
+[https://drew-haas.github.io/goodlifeondemand/]
 
 ## Project setup
 ```
