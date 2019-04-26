@@ -57,10 +57,6 @@ export default {
 
 
 <style lang="scss">
-$accent: #FF9683;
-$screen-sm: 767px;
-$screen-xs: 500px;
-
 .down-arrow {
     width: 14px;
     height: 14px;
@@ -100,6 +96,7 @@ $screen-xs: 500px;
         background-position: center;
         z-index: -1;
         position: relative;
+        max-height: 1000px;
 
         &:before {
             content: '';
