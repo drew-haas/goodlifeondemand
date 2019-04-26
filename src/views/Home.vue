@@ -6,16 +6,18 @@
     <div class="page-wrapper">
         <div class="home-view-hero">
             <h1 class="title">Welcome to Good Life On Demand Productions</h1>
-            <p class="subtitle">Good Life on Demand is here to provide a film truly personal and authentic for the most
-    significant day in a couple’s existence. We are a Pittsburgh and Los Angeles based
-    videographers who are contracted all across the continental US. If you are planning a wedding
-    with a concrete layout to celebrate the love of two people and rejoice with your friends and
-    family, Good Life on Demand may be the perfect fit for you!</p>
+            <p class="subtitle">Good Life on Demand is here to provide a film truly personal and authentic for the most significant day in a couple’s existence. We are a Pittsburgh and Los Angeles based videographers who are contracted all across the continental US. If you are planning a wedding with a concrete layout to celebrate the love of two people and rejoice with your friends and family, Good Life on Demand may be the perfect fit for you!</p>
         </div>
         <div class="callout-work">
             <h2 class="callout-work-title">Our Work</h2>
             <div class="callout-work-items">
-                <div class="callout-work-item" v-for="item in workItems" :key="item.id">{{item.title}}</div>
+                <div class="callout-work-item" v-for="item in workItems" :key="item.id">
+                    <div class="content">
+                        <div class="callout-work-item-title">
+                            {{item.title}}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="callout-contact">
@@ -96,7 +98,6 @@ export default {
         background-position: center;
         z-index: -1;
         position: relative;
-        max-height: 1000px;
 
         &:before {
             content: '';
@@ -124,11 +125,11 @@ export default {
     }
 
     &-work-items {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        // display: grid;
+        // grid-template-columns: 1fr 1fr 1fr;
         max-width: 700px;
         margin: 40px auto 0;
-        grid-gap: 1em;
+        // grid-gap: 1em;
 
         @media screen and (max-width: $screen-xs) {
             grid-template-columns: 1fr;
@@ -136,12 +137,21 @@ export default {
     }
 
     &-work-item {
-        height: 200px;
+        @include aspect-ratio(16, 9);
+        // height: 200px;
         background-color: #ccc;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
+        margin-bottom: 40px;
+
+        @media screen and (max-width: $screen-xs) {
+            margin-bottom: 20px;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
     }
 }
 
