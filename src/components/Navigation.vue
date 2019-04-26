@@ -23,8 +23,6 @@ export default {
 </script>
 
 <style lang="scss">
-$accent: #FF9683;
-
 .nav {
     z-index: 1;
     position: relative;
@@ -46,12 +44,10 @@ $accent: #FF9683;
         transition: color .3s;
 
         &.router-link-exact-active {
-            // color: #42b983;
             color: $accent;
         }
 
         &:hover {
-            // color: #42b983;
             color: $accent;
             transition: color .3s;
         }
@@ -63,6 +59,10 @@ $accent: #FF9683;
             text-transform: uppercase;
             font-size: 12px;
             letter-spacing: 2px;
+
+            @media screen and (max-width: $screen-xs) {
+                margin-left: 20px;
+            }
         }
     }
 
