@@ -1,14 +1,17 @@
 <template>
   <div class="home-view">
-    <div class="home-view-media">
+    <div class="home-hero">
+        <video class="home-bg-video" autoplay loop muted>
+            <source src="../assets/video/hall-wedding.mp4" type="video/mp4">
+        </video>
         <div class="down-arrow"></div>
     </div>
     <div class="page-wrapper">
-        <div class="home-view-hero">
+        <div class="home-headline">
             <h1 class="title">Welcome to Good Life On Demand Productions</h1>
             <p class="subtitle">Good Life on Demand is here to provide a film truly personal and authentic for the most significant day in a couple’s existence. We are a Pittsburgh and Los Angeles based videographers who are contracted all across the continental US. If you are planning a wedding with a concrete layout to celebrate the love of two people and rejoice with your friends and family, Good Life on Demand may be the perfect fit for you!</p>
         </div>
-        <div class="callout-work">
+        <div class="home-callout-work">
             <h2 class="callout-work-title">Our Work</h2>
             <div class="callout-work-items">
                 <div class="callout-work-item" v-for="item in workItems" :key="item.id">
@@ -36,17 +39,20 @@ export default {
                 {
                     id: 1,
                     title: 'title',
-                    path: '',
+                    src: '',
+                    thumbnail: ''
                 },
                 {
                     id: 2,
                     title: 'title2',
-                    path: '',
+                    src: '',
+                    thumbnail: ''
                 },
                 {
                     id: 3,
                     title: 'title3',
-                    path: '',
+                    src: '',
+                    thumbnail: ''
                 }
             ]
         }
@@ -85,15 +91,12 @@ export default {
             }
         }
     }
-}
 
-.home-view {
-    &-media {
+    &-hero {
         height: 100vh;
         width: 100%;
         background-repeat: no-repeat;
         background-color: #222;
-        background-image: url('../assets/img/glod-home.png');
         background-size: cover;
         background-position: center;
         z-index: -1;
@@ -109,7 +112,14 @@ export default {
         }
     }
 
-    &-hero {
+    &-bg-video {
+        @include center(absolute);
+        min-width: 100%;
+        min-height: 100%;
+        opacity: .3;
+    }
+
+    &-headline {
         max-width: 700px;
         margin: 0 auto;
 
@@ -117,34 +127,26 @@ export default {
             text-align: left;
         }
     }
-}
 
-.callout {
-    &-work {
+    &-callout-work {
         margin-top: 100px;
     }
 
-    &-work-items {
-        // display: grid;
-        // grid-template-columns: 1fr 1fr 1fr;
-        max-width: 700px;
+    .callout-work-items {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 1200px;
         margin: 40px auto 0;
-        // grid-gap: 1em;
+        grid-gap: 1.5em;
 
         @media screen and (max-width: $screen-xs) {
             grid-template-columns: 1fr;
         }
     }
 
-    &-work-item {
+    .callout-work-item {
         @include aspect-ratio(16, 9);
-        // height: 200px;
         background-color: #ccc;
-        margin-bottom: 40px;
-
-        @media screen and (max-width: $screen-xs) {
-            margin-bottom: 20px;
-        }
 
         .content {
             display: flex;
@@ -154,5 +156,4 @@ export default {
         }
     }
 }
-
 </style>

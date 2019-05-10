@@ -2,8 +2,7 @@
     <div id="nav" class="nav" :class="[ this.$attrs.lightNav ? 'nav-light' : '' ]">
         <div class="nav-wrapper">
             <router-link to="/" class="logo">
-                <!-- <img src="../assets/img/glod-logo.png" alt="Good Life on Demand Logo"> -->
-                <img src="../assets/logo.png" alt="Good Life on Demand Logo">
+                <img src="../assets/img/glod-logo-white.png" alt="Good Life on Demand Logo">
             </router-link>
             <div class="links">
                 <router-link to="/">Home</router-link>
@@ -34,7 +33,6 @@ export default {
         padding: 10px 0;
         display: flex;
         justify-content: space-between;
-        align-items: center;
     }
 
     a {
@@ -54,6 +52,8 @@ export default {
     }
 
     .links {
+        padding: 20px 0 10px 0;
+
         a {
             margin-left: 40px;
             text-transform: uppercase;
@@ -68,7 +68,7 @@ export default {
 
     .logo {
         img {
-            max-width: 50px;
+            max-width: 90px;
             display: block;
         }
     }

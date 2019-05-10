@@ -17,3 +17,11 @@
 		bottom: 0;
 	}
 }
+
+// Center object with position attribute
+@mixin center($position) {
+	position: $position;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
