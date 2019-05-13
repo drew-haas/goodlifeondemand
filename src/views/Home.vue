@@ -112,6 +112,7 @@ export default {
         }
     }
 
+
     &-bg-video {
         @include center(absolute);
         min-width: 100%;
