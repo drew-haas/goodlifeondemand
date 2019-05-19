@@ -1,0 +1,30 @@
+h1, h2, h3, h4, h5 {
+	font-family: 'Playfair', serif;
+	font-weight: 300;
+	margin-top: 0;
+}
+
+h1 {
+	font-size: 48px;
+
+	@media screen and (max-width: $screen-sm) {
+		font-size: 32px;
+	}
+}
+
+h2 {
+	margin-bottom: 0;
+}
+
+p {
+	line-height: 1.6;
+	font-size: 19px;
+
+	@media screen and (max-width: $screen-sm) {
+		font-size: 17px;
+	}
+}
+
+.subtitle {
+	margin: 10px 0 0;
+}

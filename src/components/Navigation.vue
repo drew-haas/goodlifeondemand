@@ -33,6 +33,10 @@ export default {
         padding: 10px 0;
         display: flex;
         justify-content: space-between;
+
+        @media screen and (max-width: $screen-xs) {
+            justify-content: center;
+        }
     }
 
     a {
@@ -54,6 +58,10 @@ export default {
     .links {
         padding: 20px 0 10px 0;
 
+        @media screen and (max-width: $screen-xs) {
+            display: none;
+        }
+
         a {
             margin-left: 40px;
             text-transform: uppercase;
@@ -68,7 +76,7 @@ export default {
 
     .logo {
         img {
-            max-width: 90px;
+            max-width: 96px;
             display: block;
         }
     }

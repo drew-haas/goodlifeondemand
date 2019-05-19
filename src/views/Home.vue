@@ -8,17 +8,23 @@
     </div>
     <div class="page-wrapper">
         <div class="home-headline">
-            <h1 class="title">Welcome to Good Life On Demand Productions</h1>
-            <p class="subtitle">Good Life on Demand is here to provide a film truly personal and authentic for the most significant day in a couple’s existence. We are a Pittsburgh and Los Angeles based videographers who are contracted all across the continental US. If you are planning a wedding with a concrete layout to celebrate the love of two people and rejoice with your friends and family, Good Life on Demand may be the perfect fit for you!</p>
+            <div class="home-headline-copy">
+                <h1 class="title">Welcome to Good Life On Demand Productions</h1>
+                <p class="subtitle">Good Life on Demand is here to provide a film truly personal and authentic for the most significant day in a couple’s existence. We are a Pittsburgh and Los Angeles based videographers who are contracted all across the continental US. If you are planning a wedding with a concrete layout to celebrate the love of two people and rejoice with your friends and family, Good Life on Demand may be the perfect fit for you!</p>
+            </div>
+            <div class="home-headline-image"></div>
         </div>
         <div class="home-callout-work">
             <h2 class="callout-work-title">Our Work</h2>
             <div class="callout-work-items">
                 <div class="callout-work-item" v-for="item in workItems" :key="item.id">
                     <div class="content">
-                        <div class="callout-work-item-title">
-                            {{item.title}}
-                        </div>
+                        <template v-if="item.type === 'youtube'">
+                            <iframe width="100%" height="100%" :src="'https://www.youtube.com/embed/' + item.VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen controls=0></iframe>
+                        </template>
+                        <template v-if="item.type === 'vimeo'">
+                            <iframe :src="'https://player.vimeo.com/video/' + item.VIDEO_ID + '?title=0&byline=0&portrait=0'" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen" allowfullscreen background=1></iframe>
+                        </template>
                     </div>
                 </div>
             </div>
@@ -39,20 +45,30 @@ export default {
                 {
                     id: 1,
                     title: 'title',
-                    src: '',
-                    thumbnail: ''
+                    VIDEO_ID: 'Vw-CnimqiKk',
+                    thumbnail: '',
+                    type: 'youtube'
                 },
                 {
                     id: 2,
                     title: 'title2',
-                    src: '',
-                    thumbnail: ''
+                    VIDEO_ID: 'KUaI6Cg62B8',
+                    thumbnail: '',
+                    type: 'youtube'
                 },
                 {
                     id: 3,
                     title: 'title3',
-                    src: '',
-                    thumbnail: ''
+                    VIDEO_ID: '332339318',
+                    thumbnail: '',
+                    type: 'vimeo'
+                },
+                {
+                    id: 4,
+                    title: 'title3',
+                    VIDEO_ID: '337074132',
+                    thumbnail: '',
+                    type: 'vimeo'
                 }
             ]
         }
@@ -96,11 +112,12 @@ export default {
         height: 100vh;
         width: 100%;
         background-repeat: no-repeat;
-        background-color: #222;
+        background-color: #000;
         background-size: cover;
         background-position: center;
         z-index: -1;
         position: relative;
+        overflow: hidden;
 
         &:before {
             content: '';
@@ -117,28 +134,50 @@ export default {
         @include center(absolute);
         min-width: 100%;
         min-height: 100%;
-        opacity: .3;
+        opacity: .8;
     }
 
     &-headline {
-        max-width: 700px;
-        margin: 0 auto;
+        padding: 100px 0;
+        position: relative;
 
         @media screen and (max-width: $screen-sm) {
-            text-align: left;
+            padding: 40px 0;
+        }
+    }
+
+    &-headline-copy {
+        max-width: 550px;
+    }
+
+    &-headline-image {
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #ccc;
+        // background-image: url('../assets/img/glod-home.png');
+        background-size: cover;
+        z-index: -1;
+        opacity: .7;
+
+        @media screen and (max-width: $screen-sm) {
+            display: none;
         }
     }
 
     &-callout-work {
         margin-top: 100px;
+        text-align: center;
     }
 
     .callout-work-items {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        max-width: 1200px;
+        max-width: 1400px;
         margin: 40px auto 0;
-        grid-gap: 1.5em;
+        grid-gap: 2em;
 
         @media screen and (max-width: $screen-xs) {
             grid-template-columns: 1fr;
