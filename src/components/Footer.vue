@@ -1,9 +1,21 @@
 <template>
   <div class="footer">
-    <ul>
-      <li><a href="mailto:GoodLifeOnDemandProductions@gmail.com" class="email">GoodLifeOnDemandProductions@gmail.com</a></li>
-      <li><a href="tel:724-986-7862" class="">724-986-7862</a></li>
-    </ul>
+    <div class="footer-wrapper">
+      <div class="footer-column">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:GoodLifeOnDemandProductions@gmail.com" class="email">GoodLifeOnDemandProductions@gmail.com</a></li>
+          <li><a href="tel:724-986-7862">724-986-7862</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h2>Social</h2>
+        <ul>
+          <li><a href="https://vimeo.com/user97759962" target="_blank">Vimeo</a></li>
+          <li><a href="https://www.youtube.com/channel/UCGrjthRvy5eP1hIbF06DJEg/featured" target="_blank">Youtube</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -19,7 +31,43 @@ export default {
 <style scoped lang="scss">
     .footer {
         width: 100%;
-        background-color: #f3f3f3;
-        // background-color: #ccc;
+        padding: 60px 0;
+        background-color: $gray-super-light;
+
+        a {
+          color: $gray-dark;
+          transition: color .3s;
+
+          &:hover {
+            color: $accent;
+            transition: color .3s;
+          }
+        }
+
+        h2 {
+          margin-bottom: 20px;
+          padding-bottom: 14px;
+          border-bottom: 1px solid $gray-light;
+        }
+    }
+
+    .footer-wrapper {
+      width: 90%;
+      max-width: $container-xl;
+      margin: 0 auto;
+      display: flex;
+      word-break: break-all;
+
+      @media screen and (max-width: $screen-sm) {
+        display: block;
+      }
+
+      .footer-column {
+        margin-right: 50px;
+
+        @media screen and (max-width: $screen-sm) {
+          margin: 0 0 50px 0;
+        }
+      }
     }
 </style>

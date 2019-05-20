@@ -27,7 +27,7 @@ export default {
     position: relative;
 
     .nav-wrapper {
-        max-width: 1440px;
+        max-width: $container-xl;
         width: 95%;
         margin: 0 auto;
         padding: 10px 0;
@@ -41,7 +41,6 @@ export default {
 
     a {
         font-weight: bold;
-        color: #222;
         text-decoration: none;
         transition: color .3s;
 
@@ -56,7 +55,7 @@ export default {
     }
 
     .links {
-        padding: 20px 0 10px 0;
+        padding: 26px 0 0;
 
         @media screen and (max-width: $screen-xs) {
             display: none;
@@ -65,7 +64,7 @@ export default {
         a {
             margin-left: 40px;
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: 15px;
             letter-spacing: 2px;
 
             @media screen and (max-width: $screen-xs) {

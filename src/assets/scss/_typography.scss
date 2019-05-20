@@ -13,7 +13,11 @@ h1 {
 }
 
 h2 {
-	margin-bottom: 0;
+	font-size: 36px;
+
+	@media screen and (max-width: $screen-sm) {
+		font-size: 32px;
+	}
 }
 
 p {
@@ -22,6 +26,27 @@ p {
 
 	@media screen and (max-width: $screen-sm) {
 		font-size: 17px;
+	}
+}
+
+a {
+	color: $gray-dark;
+	text-decoration: none;
+	transition: color .3s;
+
+	&:hover {
+		color: $accent;
+		transition: color .3s;
+	}
+}
+
+ol, ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	
+	li {
+		margin-bottom: 10px;
 	}
 }
 

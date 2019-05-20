@@ -7,17 +7,17 @@
         <div class="down-arrow"></div>
     </div>
     <div class="page-wrapper">
-        <div class="home-headline">
+        <img src="../assets/img/flower-bg.jpg" alt="Flower Background" class="home-headline-image">
+        <section class="home-headline">
             <div class="home-headline-copy">
                 <h1 class="title">Welcome to Good Life On Demand Productions</h1>
                 <p class="subtitle">Good Life on Demand is here to provide a film truly personal and authentic for the most significant day in a couple’s existence. We are a Pittsburgh and Los Angeles based videographers who are contracted all across the continental US. If you are planning a wedding with a concrete layout to celebrate the love of two people and rejoice with your friends and family, Good Life on Demand may be the perfect fit for you!</p>
             </div>
-            <div class="home-headline-image"></div>
-        </div>
-        <div class="home-callout-work">
-            <h2 class="callout-work-title">Our Work</h2>
-            <div class="callout-work-items">
-                <div class="callout-work-item" v-for="item in workItems" :key="item.id">
+        </section>
+        <section class="home-work">
+            <h2 class="home-work-title">Our Work</h2>
+            <div class="home-work-items">
+                <div class="home-work-item" v-for="item in workItems" :key="item.id">
                     <div class="content">
                         <template v-if="item.type === 'youtube'">
                             <iframe width="100%" height="100%" :src="'https://www.youtube.com/embed/' + item.VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen controls=0></iframe>
@@ -28,10 +28,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="callout-contact">
-            <h2 class="callout-contact-title"></h2>
-        </div>
+        </section>
     </div>
   </div>
 </template>
@@ -81,17 +78,6 @@ export default {
 
 
 <style lang="scss">
-.down-arrow {
-    width: 14px;
-    height: 14px;
-    border-bottom: 2px solid #fff;
-    border-left: 2px solid #fff;
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-45deg);
-}
-
 .home {
     .nav {
         position: absolute;
@@ -151,28 +137,31 @@ export default {
     }
 
     &-headline-image {
-        width: 50%;
-        height: 100%;
+        width: 100%;
+        max-width: 1300px;
         position: absolute;
         top: 0;
-        right: 0;
-        background-color: #ccc;
-        // background-image: url('../assets/img/glod-home.png');
-        background-size: cover;
+        right: -10%;
         z-index: -1;
-        opacity: .7;
 
         @media screen and (max-width: $screen-sm) {
             display: none;
         }
     }
 
-    &-callout-work {
+    &-work {
         margin-top: 100px;
         text-align: center;
+
+        h2 {
+            border-bottom: 1px solid $gray-light;
+            padding-bottom: 14px;
+            display: inline-block;
+            margin-bottom: 0;
+        }
     }
 
-    .callout-work-items {
+    &-work-items {
         display: grid;
         grid-template-columns: 1fr 1fr;
         max-width: 1400px;
@@ -184,7 +173,7 @@ export default {
         }
     }
 
-    .callout-work-item {
+    &-work-item {
         @include aspect-ratio(16, 9);
         background-color: #ccc;
 
