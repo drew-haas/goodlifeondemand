@@ -112,6 +112,10 @@ export default {
             height: 10%;
             pointer-events: none;
             background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            z-index: 1;
+            position: relative;
+            opacity: .7;
+            display: none;
         }
     }
 
