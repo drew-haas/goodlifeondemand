@@ -1,10 +1,12 @@
 h1, h2, h3, h4, h5 {
-	font-family: 'Playfair', serif;
+	// font-family: 'Playfair', serif;
+	font-family: 'Dancing Script', cursive;
 	font-weight: 300;
 	margin-top: 0;
 }
 
 h1 {
+	font-family: 'Dancing Script', cursive;
 	font-size: 48px;
 
 	@media screen and (max-width: $screen-sm) {

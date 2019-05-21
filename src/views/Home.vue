@@ -10,7 +10,7 @@
         <img src="../assets/img/flower-bg.jpg" alt="Flower Background" class="home-headline-image">
         <section class="home-headline">
             <div class="home-headline-copy">
-                <h1 class="title">Welcome to Good Life On Demand Productions</h1>
+                <h1 class="title">Welcome to Good Life On Demand Productions</h1>
                 <p class="subtitle">Good Life on Demand is here to provide a film truly personal and authentic for the most significant day in a couple’s existence. We are a Pittsburgh and Los Angeles based videographers who are contracted all across the continental US. If you are planning a wedding with a concrete layout to celebrate the love of two people and rejoice with your friends and family, Good Life on Demand may be the perfect fit for you!</p>
             </div>
         </section>
@@ -169,7 +169,7 @@ export default {
         display: grid;
         grid-template-columns: 1fr 1fr;
         max-width: 1400px;
-        margin: 40px auto 0;
+        margin: 60px auto;
         grid-gap: 2em;
 
         @media screen and (max-width: $screen-xs) {
