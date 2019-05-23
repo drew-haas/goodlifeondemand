@@ -1,4 +1,5 @@
 // keeps aspect ratio
+// * need to wrap everything in .content div
 @mixin aspect-ratio($width, $height) {
 	position: relative;
 	

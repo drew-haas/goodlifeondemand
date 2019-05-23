@@ -15,17 +15,22 @@
             </div>
         </section>
         <section class="home-work">
-            <h2 class="home-work-title">Our Work</h2>
+            <div class="home-work-header">
+                <h2 class="home-work-title">Our Work</h2>
+            </div>
             <div class="home-work-items">
                 <div class="home-work-item" v-for="item in workItems" :key="item.id">
-                    <div class="content">
-                        <template v-if="item.type === 'youtube'">
-                            <iframe width="100%" height="100%" :src="'https://www.youtube.com/embed/' + item.VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen controls=0></iframe>
-                        </template>
-                        <template v-if="item.type === 'vimeo'">
-                            <iframe :src="'https://player.vimeo.com/video/' + item.VIDEO_ID + '?title=0&byline=0&portrait=0'" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen" allowfullscreen background=1></iframe>
-                        </template>
+                    <div class="video-container">
+                        <div class="content">
+                            <template v-if="item.type === 'youtube'">
+                                <iframe width="100%" height="100%" :src="'https://www.youtube.com/embed/' + item.VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen controls=0></iframe>
+                            </template>
+                            <template v-if="item.type === 'vimeo'">
+                                <iframe :src="'https://player.vimeo.com/video/' + item.VIDEO_ID + '?title=0&byline=0&portrait=0'" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen" allowfullscreen background=1></iframe>
+                            </template>
+                        </div>
                     </div>
+                    <p>{{item.title}}</p>
                 </div>
             </div>
         </section>
@@ -41,32 +46,32 @@ export default {
             workItems: [
                 {
                     id: 1,
-                    title: 'title',
-                    VIDEO_ID: 'Vw-CnimqiKk',
+                    title: 'Fornear Wedding, 2019',
+                    VIDEO_ID: '337074132',
                     thumbnail: '',
-                    type: 'youtube'
+                    type: 'vimeo'
                 },
                 {
                     id: 2,
-                    title: 'title2',
-                    VIDEO_ID: 'KUaI6Cg62B8',
-                    thumbnail: '',
-                    type: 'youtube'
-                },
-                {
-                    id: 3,
-                    title: 'title3',
+                    title: 'Walter Wedding, 2018',
                     VIDEO_ID: '332339318',
                     thumbnail: '',
                     type: 'vimeo'
                 },
                 {
-                    id: 4,
-                    title: 'title3',
-                    VIDEO_ID: '337074132',
+                    id: 3,
+                    title: 'Hall Wedding, 2017',
+                    VIDEO_ID: 'Vw-CnimqiKk',
                     thumbnail: '',
-                    type: 'vimeo'
-                }
+                    type: 'youtube'
+                },
+                {
+                    id: 4,
+                    title: 'Landman Wedding, 2018',
+                    VIDEO_ID: 'KUaI6Cg62B8',
+                    thumbnail: '',
+                    type: 'youtube'
+                },
             ]
         }
     },
@@ -155,7 +160,10 @@ export default {
 
     &-work {
         margin-top: 100px;
-        text-align: center;
+
+        &-header {
+            text-align: center;
+        }
 
         h2 {
             border-bottom: 1px solid $gray-light;
@@ -178,8 +186,15 @@ export default {
     }
 
     &-work-item {
-        @include aspect-ratio(16, 9);
-        background-color: #ccc;
+        p {
+            margin: 10px 0 26px;
+            // font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .video-container {
+            @include aspect-ratio(16, 9);
+            background-color: #ccc;
+        }
 
         .content {
             display: flex;

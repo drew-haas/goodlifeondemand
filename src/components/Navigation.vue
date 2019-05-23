@@ -4,11 +4,11 @@
             <router-link to="/" class="logo">
                 <img src="../assets/img/glod-logo-white.png" alt="Good Life on Demand Logo">
             </router-link>
-            <div class="links">
+            <!-- <div class="links">
                 <router-link to="/">Home</router-link>
                 <router-link to="/our-work">Our Work</router-link>
                 <router-link to="/contact">Contact</router-link>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -16,8 +16,15 @@
 <script>
 export default {
     props: {
-        lightNav: Boolean
+        lightNav: Boolean,
     },
+    methods: {
+        // getLogo: function() {
+        //     console.log(this.$route.name)
+        //     let logoSrc = this.$route.name === 'home' ? require.context('../assets/img/glod-logo-white.png') : require.context('../assets/img/glod-logo-black.png');
+        //     return logoSrc;
+        // }
+    }
 }
 </script>
 

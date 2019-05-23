@@ -17,6 +17,7 @@ export default new Router({
     {
         path: '/our-work',
         name: 'our work',
+        props: { lightNav: false },
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
@@ -25,6 +26,7 @@ export default new Router({
     {
         path: '/contact',
         name: 'contact',
+        props: { lightNav: false },
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
