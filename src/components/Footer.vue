@@ -12,7 +12,7 @@
         <h2>Social</h2>
         <ul>
           <li><a href="https://vimeo.com/user97759962" target="_blank">Vimeo</a></li>
-          <li><a href="https://www.youtube.com/channel/UCGrjthRvy5eP1hIbF06DJEg/featured" target="_blank">Youtube</a></li>
+          <!-- <li><a href="https://www.youtube.com/channel/UCGrjthRvy5eP1hIbF06DJEg/featured" target="_blank">Youtube</a></li> -->
         </ul>
       </div>
     </div>

@@ -61,16 +61,16 @@ export default {
                 {
                     id: 3,
                     title: 'Hall Wedding, 2017',
-                    VIDEO_ID: 'Vw-CnimqiKk',
+                    VIDEO_ID: '340514758',
                     thumbnail: '',
-                    type: 'youtube'
+                    type: 'vimeo'
                 },
                 {
                     id: 4,
                     title: 'Landman Wedding, 2018',
-                    VIDEO_ID: 'KUaI6Cg62B8',
+                    VIDEO_ID: '340515268',
                     thumbnail: '',
-                    type: 'youtube'
+                    type: 'vimeo'
                 },
             ]
         }
