@@ -1,8 +1,18 @@
 # goodlifeondemand
 Website for Good Life on Demand
-[stage site](https://drew-haas.github.io/goodlifeondemand/)
+[Goodlife on Demand Productions](http://goodlifeondemandproductions.com/)
+
+This is using the Vue JS Framework.
+Documentation on that can be found here: [Vue](https://vuejs.org/)
 
 ## Project setup
+### Clone the project locally
+```
+git clone git@github.com:drew-haas/goodlifeondemand.git
+```
+```
+cd goodlifeondemand
+```
 ```
 npm install
 ```

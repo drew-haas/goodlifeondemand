@@ -39,6 +39,15 @@
 </template>
 
 <script>
+/*
+    Work Items
+    -----------
+    id: must be unique
+    title: title to be displayed with video
+    VIDEO_ID: must match the unique video ID for the type used
+    type: supports 'vimeo' or 'youtube'
+*/
+
 export default {
     name: 'home',
     data() {
@@ -46,30 +55,26 @@ export default {
             workItems: [
                 {
                     id: 1,
-                    title: 'Fornear Wedding, 2019',
+                    title: 'Fornear Wedding',
                     VIDEO_ID: '337074132',
-                    thumbnail: '',
                     type: 'vimeo'
                 },
                 {
                     id: 2,
-                    title: 'Walter Wedding, 2018',
+                    title: 'Walter Wedding',
                     VIDEO_ID: '332339318',
-                    thumbnail: '',
                     type: 'vimeo'
                 },
                 {
                     id: 3,
-                    title: 'Hall Wedding, 2017',
+                    title: 'Hall Wedding',
                     VIDEO_ID: '340514758',
-                    thumbnail: '',
                     type: 'vimeo'
                 },
                 {
                     id: 4,
-                    title: 'Landman Wedding, 2018',
+                    title: 'Landman Wedding',
                     VIDEO_ID: '340515268',
-                    thumbnail: '',
                     type: 'vimeo'
                 },
             ]
