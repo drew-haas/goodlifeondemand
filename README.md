@@ -22,11 +22,6 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
 ### Run your tests
 ```
 npm run test
@@ -36,6 +31,14 @@ npm run test
 ```
 npm run lint
 ```
+
+## Project Deploying
+### Compiles and minifies for production
+```
+npm run build
+```
+
+After build has run, upload everything in the dist folder to the public_html folder on your server.
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
