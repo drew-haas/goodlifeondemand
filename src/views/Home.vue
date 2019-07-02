@@ -11,7 +11,7 @@
         <section class="home-headline">
             <div class="home-headline-copy">
                 <h1 class="title">Welcome to Good Life On Demand Productions</h1>
-                <p class="subtitle">Good Life on Demand is here to provide a film truly personal and authentic for the most significant day in a couple’s existence. We are a Pittsburgh and Los Angeles based videographers who are contracted all across the continental US. If you are planning a wedding with a concrete layout to celebrate the love of two people and rejoice with your friends and family, Good Life on Demand may be the perfect fit for you!</p>
+                <p class="subtitle">Good Life on Demand is here to provide a film truly personal and authentic for the most significant day in a couple’s relationship. We are a Pittsburgh and Los Angeles based videographers who are contracted all across the continental US. If you are planning a wedding with a concrete layout to celebrate the love of two people and rejoice with your friends and family, Good Life on Demand may be the perfect fit for you!</p>
             </div>
         </section>
         <section class="home-work">
@@ -20,6 +20,7 @@
             </div>
             <div class="home-work-items">
                 <div class="home-work-item" v-for="item in workItems" :key="item.id">
+                    <p class="item-title">{{item.title}}</p>
                     <div class="video-container">
                         <div class="content">
                             <template v-if="item.type === 'youtube'">
@@ -30,7 +31,6 @@
                             </template>
                         </div>
                     </div>
-                    <p>{{item.title}}</p>
                 </div>
             </div>
         </section>
@@ -182,7 +182,7 @@ export default {
         display: grid;
         grid-template-columns: 1fr 1fr;
         max-width: 1400px;
-        margin: 60px auto;
+        margin: 40px auto 60px;
         grid-gap: 2em;
 
         @media screen and (max-width: $screen-xs) {
@@ -192,8 +192,9 @@ export default {
 
     &-work-item {
         p {
-            margin: 10px 0 26px;
-            // font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 15px 0 10px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 24px;
         }
 
         .video-container {
