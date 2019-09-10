@@ -55,26 +55,26 @@ export default {
             workItems: [
                 {
                     id: 1,
+                    title: 'Heath Wedding',
+                    VIDEO_ID: '355890720',
+                    type: 'vimeo'
+                },
+                {
+                    id: 2,
                     title: 'Fornear Wedding',
                     VIDEO_ID: '337074132',
                     type: 'vimeo'
                 },
                 {
-                    id: 2,
+                    id: 3,
                     title: 'Walter Wedding',
                     VIDEO_ID: '332339318',
                     type: 'vimeo'
                 },
                 {
-                    id: 3,
+                    id: 4,
                     title: 'Hall Wedding',
                     VIDEO_ID: '340514758',
-                    type: 'vimeo'
-                },
-                {
-                    id: 4,
-                    title: 'Heath Wedding',
-                    VIDEO_ID: '355890720',
                     type: 'vimeo'
                 },
                 // {
