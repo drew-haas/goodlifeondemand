@@ -73,10 +73,16 @@ export default {
                 },
                 {
                     id: 4,
-                    title: 'Landman Wedding',
-                    VIDEO_ID: '340515268',
+                    title: 'Heath Wedding',
+                    VIDEO_ID: '355890720',
                     type: 'vimeo'
                 },
+                // {
+                //     id: 4,
+                //     title: 'Landman Wedding',
+                //     VIDEO_ID: '340515268',
+                //     type: 'vimeo'
+                // },
             ]
         }
     },
