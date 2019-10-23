@@ -2,7 +2,7 @@
   <div class="home-view">
     <div class="home-hero">
         <video class="home-bg-video" autoplay loop muted>
-            <!-- <source src="../assets/video/hall-wedding.mp4" type="video/mp4"> -->
+            <source src="../assets/video/hall-wedding.mp4" type="video/mp4">
         </video>
         <div class="down-arrow"></div>
     </div>
