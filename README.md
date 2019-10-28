@@ -1,6 +1,5 @@
 # goodlifeondemand
-Website for Good Life on Demand
-[Goodlife on Demand Productions](http://goodlifeondemandproductions.com/)
+Website for [Goodlife on Demand Productions](http://goodlifeondemandproductions.com/)
 
 This is using the Vue JS Framework.
 Documentation on that can be found here: [Vue](https://vuejs.org/)
@@ -43,3 +42,9 @@ After build has run, upload everything in the dist folder to the public_html fol
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+## Other applications being used on this project
+Git LFS
+Netlify
+Netlify Large Media
+Netlify CMS*
+Vimeo
