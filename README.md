@@ -43,8 +43,4 @@ After build has run, upload everything in the dist folder to the public_html fol
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Other applications being used on this project
-Git LFS
-Netlify
-Netlify Large Media
-Netlify CMS*
 Vimeo

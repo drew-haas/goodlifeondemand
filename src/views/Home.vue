@@ -2,7 +2,7 @@
   <div class="home-view">
     <div class="home-hero">
         <video class="home-bg-video" autoplay loop muted>
-            <source src="../assets/media/hero-video.mp4" type="video/mp4">
+            <source src="https://goodlifeondemandproductions.s3-us-west-1.amazonaws.com/hall-wedding.mp4" type="video/mp4">
         </video>
         <div class="down-arrow"></div>
     </div>
