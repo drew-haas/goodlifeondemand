@@ -15,22 +15,16 @@ export default new Router({
         props: { lightNav: true }
     },
     {
-        path: '/our-work',
-        name: 'our work',
+        path: '/work',
+        name: 'work',
         props: { lightNav: false },
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ './views/OurWork.vue')
+        component: () => import('./views/Work.vue')
     },
     {
         path: '/contact',
         name: 'contact',
         props: { lightNav: false },
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ './views/Contact.vue')
+        component: () => import('./views/Contact.vue')
     }
   ]
 })

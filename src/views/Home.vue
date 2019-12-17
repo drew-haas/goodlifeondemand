@@ -8,30 +8,23 @@
     </div>
     <div class="page-wrapper">
         <img src="../assets/img/flower-bg.jpg" alt="Flower Background" class="home-headline-image">
+
         <section class="home-headline">
             <div class="home-headline-copy">
                 <h1 class="title">Welcome to Good Life On Demand Productions!</h1>
                 <p class="subtitle">Good Life on Demand is here to provide a film truly personal and authentic for the most significant day in a couple’s relationship. We are a Pittsburgh and Los Angeles based videographers who are contracted all across the continental US. If you are planning a wedding with a concrete layout to celebrate the love of two people and rejoice with your friends and family, Good Life on Demand may be the perfect fit for you!</p>
             </div>
         </section>
+
         <section class="home-work">
             <div class="home-work-header">
                 <h2 class="home-work-title">Our Work</h2>
             </div>
             <div class="home-work-items">
-                <div class="home-work-item" v-for="item in workItems" :key="item.id">
-                    <p class="item-title">{{item.title}}</p>
-                    <div class="video-container">
-                        <div class="content">
-                            <template v-if="item.type === 'youtube'">
-                                <iframe width="100%" height="100%" :src="'https://www.youtube.com/embed/' + item.VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen controls=0></iframe>
-                            </template>
-                            <template v-if="item.type === 'vimeo'">
-                                <iframe :src="'https://player.vimeo.com/video/' + item.VIDEO_ID + '?title=0&byline=0&portrait=0'" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen" allowfullscreen background=1></iframe>
-                            </template>
-                        </div>
-                    </div>
-                </div>
+              <video-small v-for="(item, index) in workItems" :index="index" :key="index" :item="item"></video-small>
+            </div>
+            <div class="link-container">
+              <router-link to="/work">View All</router-link>
             </div>
         </section>
     </div>
@@ -47,53 +40,48 @@
     VIDEO_ID: must match the unique video ID for the type used
     type: supports 'vimeo' or 'youtube'
 */
+import VideoSmall from '../components/VideoSmall';
 
 export default {
     name: 'home',
+    components: {
+      'video-small': VideoSmall
+    },
     data() {
         return {
             workItems: [
                 {
-                    id: 1,
                     title: 'Heath Wedding',
                     VIDEO_ID: '355890720',
                     type: 'vimeo'
                 },
                 {
-                    id: 2,
                     title: 'Fornear Wedding',
                     VIDEO_ID: '337074132',
                     type: 'vimeo'
                 },
                 {
-                    id: 3,
                     title: 'Walter Wedding',
                     VIDEO_ID: '332339318',
                     type: 'vimeo'
                 },
                 {
-                    id: 4,
                     title: 'Hall Wedding',
                     VIDEO_ID: '340514758',
                     type: 'vimeo'
                 },
-                // {
-                //     id: 4,
-                //     title: 'Landman Wedding',
-                //     VIDEO_ID: '340515268',
-                //     type: 'vimeo'
-                // },
             ]
         }
     },
-    beforeCreate: function() {
+    beforeCreate() {
         document.body.className = 'home';
+        window.scrollTo(0,0);
     }
 }
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 .home {
     .nav {
         position: absolute;
@@ -191,29 +179,21 @@ export default {
         margin: 40px auto 60px;
         grid-gap: 2em;
 
-        @media screen and (max-width: $screen-xs) {
+        @media screen and (max-width: $screen-sm) {
             grid-template-columns: 1fr;
         }
     }
+}
 
-    &-work-item {
-        p {
-            margin: 15px 0 10px;
-            font-family: 'Dancing Script', cursive;
-            font-size: 24px;
-        }
+.link-container {
+  width: 100%;
+  text-align: center;
 
-        .video-container {
-            @include aspect-ratio(16, 9);
-            background-color: #ccc;
-        }
-
-        .content {
-            display: flex;
-            align-items: center;
-            text-align: center;
-            justify-content: center;
-        }
-    }
+  a {
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 2px;
+    font-weight: bold;
+  }
 }
 </style>
