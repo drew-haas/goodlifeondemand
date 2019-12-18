@@ -4,11 +4,9 @@
             <router-link to="/" class="logo">
                 <img src="../assets/img/glod-logo-white.png" alt="Good Life on Demand Logo">
             </router-link>
-            <!-- <div class="links">
-                <router-link to="/">Home</router-link>
-                <router-link to="/our-work">Our Work</router-link>
-                <router-link to="/contact">Contact</router-link>
-            </div> -->
+            <div class="links">
+                <router-link to="/work">All Work</router-link>
+            </div>
         </div>
     </div>
 </template>
@@ -16,22 +14,29 @@
 <script>
 export default {
     props: {
-        lightNav: Boolean,
+      lightNav: Boolean,
     },
-    methods: {
-        // getLogo: function() {
-        //     console.log(this.$route.name)
-        //     let logoSrc = this.$route.name === 'home' ? require.context('../assets/img/glod-logo-white.png') : require.context('../assets/img/glod-logo-black.png');
-        //     return logoSrc;
-        // }
-    }
 }
 </script>
 
 <style lang="scss">
 .nav {
     z-index: 1;
-    position: relative;
+    position: fixed;
+    width: 100%;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      opacity: .7;
+      height: 180px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 90%);
+      z-index: -1;
+    }
 
     .nav-wrapper {
         max-width: $container-xl;
@@ -40,10 +45,6 @@ export default {
         padding: 10px 0;
         display: flex;
         justify-content: space-between;
-
-        @media screen and (max-width: $screen-xs) {
-            justify-content: center;
-        }
     }
 
     a {
@@ -64,15 +65,16 @@ export default {
     .links {
         padding: 26px 0 0;
 
-        @media screen and (max-width: $screen-xs) {
-            display: none;
-        }
-
         a {
             margin-left: 40px;
             text-transform: uppercase;
             font-size: 15px;
             letter-spacing: 2px;
+            color: #fff;
+
+            &:hover {
+              color: $accent;
+            }
 
             @media screen and (max-width: $screen-xs) {
                 margin-left: 20px;
@@ -84,6 +86,10 @@ export default {
         img {
             max-width: 96px;
             display: block;
+
+            @media screen and (max-width: $screen-xs) {
+              max-width: 70px;
+            }
         }
     }
 }

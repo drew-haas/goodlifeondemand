@@ -1,6 +1,8 @@
 # goodlifeondemand
 Website for [Goodlife on Demand Productions](http://goodlifeondemandproductions.com/)
 
+Staging site hosted by Zeit: [goodlifeondemand.drewhaas.now.sh](https://goodlifeondemand.drewhaas.now.sh/)
+
 This is using the Vue JS Framework.
 Documentation on that can be found here: [Vue](https://vuejs.org/)
 
@@ -44,3 +46,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Other applications being used on this project
 Vimeo
+Zeit
