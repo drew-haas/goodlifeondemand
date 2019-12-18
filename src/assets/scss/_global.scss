@@ -35,14 +35,12 @@ body {
 	}
 }
 
-.home, .work, .contact {
-	section {
-		max-width: $container-xl;
-		width: 90%;
-		margin: 0 auto 100px;
+section {
+  max-width: $container-xl;
+  width: 90%;
+  margin: 0 auto 100px;
 
-		&:last-of-type {
-			margin-bottom: 0;
-		}
-	}
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }

@@ -1,9 +1,8 @@
 <template>
     <div class="work-view page-wrapper">
-        <div class="overlay-image" :style="{backgroundImage: 'url(' + require('@/assets/img/work-hero.jpg')}">
-          <!-- <img src="../assets/img/work-hero.jpg" alt="Flowers on White Background"> -->
-        </div>
-        <section>
+        <div class="overlay-image" :style="{backgroundImage: 'url(' + require('@/assets/img/work-hero.jpg')}"></div>
+
+        <section class="work-hero">
             <h1>Work</h1>
             <p>Weddings from small to large. Check out our video compilations below.</p>
         </section>
@@ -25,6 +24,16 @@ export default {
   data() {
     return {
       workItems: [
+        {
+          title: 'Kazimer Wedding',
+          VIDEO_ID: '378695844',
+          type: 'vimeo'
+        },
+        {
+          title: 'Henney Wedding',
+          VIDEO_ID: '373809922',
+          type: 'vimeo'
+        },
         {
           title: 'Heath Wedding',
           VIDEO_ID: '355890720',
@@ -65,6 +74,11 @@ export default {
   padding-top: 300px;
 }
 
+.work-hero {
+  max-width: 900px;
+  margin: 0 auto 50px;
+}
+
 h1 {
   margin-bottom: 0;
 }
@@ -91,14 +105,15 @@ h1 {
 }
 
 .videos-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  max-width: 1400px;
+  max-width: 900px;
   margin: 40px auto 60px;
-  grid-gap: 2em;
 
-  @media screen and (max-width: $screen-sm) {
-      grid-template-columns: 1fr;
+  .video-small-container {
+    margin-bottom: 130px;
+
+    @media screen and (max-width: $screen-sm) {
+      margin-bottom: 70px;
+    }
   }
 }
 </style>

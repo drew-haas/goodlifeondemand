@@ -43,40 +43,40 @@
 import VideoSmall from '../components/VideoSmall';
 
 export default {
-    name: 'home',
-    components: {
-      'video-small': VideoSmall
-    },
-    data() {
-        return {
-            workItems: [
-                {
-                    title: 'Heath Wedding',
-                    VIDEO_ID: '355890720',
-                    type: 'vimeo'
-                },
-                {
-                    title: 'Fornear Wedding',
-                    VIDEO_ID: '337074132',
-                    type: 'vimeo'
-                },
-                {
-                    title: 'Walter Wedding',
-                    VIDEO_ID: '332339318',
-                    type: 'vimeo'
-                },
-                {
-                    title: 'Hall Wedding',
-                    VIDEO_ID: '340514758',
-                    type: 'vimeo'
-                },
-            ]
-        }
-    },
-    beforeCreate() {
-        document.body.className = 'home';
-        window.scrollTo(0,0);
+  name: 'home',
+  components: {
+    'video-small': VideoSmall
+  },
+  data() {
+    return {
+      workItems: [
+        {
+          title: 'Heath Wedding',
+          VIDEO_ID: '355890720',
+          type: 'vimeo'
+        },
+        {
+          title: 'Kazimer Wedding',
+          VIDEO_ID: '378695844',
+          type: 'vimeo'
+        },
+        {
+            title: 'Walter Wedding',
+            VIDEO_ID: '332339318',
+            type: 'vimeo'
+        },
+        {
+          title: 'Henney Wedding',
+          VIDEO_ID: '373809922',
+          type: 'vimeo'
+        },
+      ]
     }
+  },
+  beforeCreate() {
+      document.body.className = 'home';
+      window.scrollTo(0,0);
+  }
 }
 </script>
 
@@ -108,6 +108,7 @@ export default {
         z-index: -1;
         position: relative;
         overflow: hidden;
+        max-height: 1024px;
 
         &:before {
             content: '';
@@ -120,6 +121,10 @@ export default {
             position: relative;
             opacity: .7;
             display: none;
+        }
+
+        @media screen and (max-width: $screen-xs) {
+          max-height: 400px;
         }
     }
 

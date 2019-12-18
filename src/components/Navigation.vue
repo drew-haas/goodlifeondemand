@@ -45,10 +45,6 @@ export default {
         padding: 10px 0;
         display: flex;
         justify-content: space-between;
-
-        @media screen and (max-width: $screen-xs) {
-            justify-content: center;
-        }
     }
 
     a {
@@ -68,10 +64,6 @@ export default {
 
     .links {
         padding: 26px 0 0;
-
-        @media screen and (max-width: $screen-xs) {
-            display: none;
-        }
 
         a {
             margin-left: 40px;
@@ -94,6 +86,10 @@ export default {
         img {
             max-width: 96px;
             display: block;
+
+            @media screen and (max-width: $screen-xs) {
+              max-width: 70px;
+            }
         }
     }
 }
