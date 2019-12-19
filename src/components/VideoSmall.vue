@@ -26,7 +26,7 @@ export default {
   p {
     margin: 0 0 10px;
     font-family: $sans-serif;
-    font-size: 21px;
+    font-size: 18px;
     color: $gray-body;
   }
 

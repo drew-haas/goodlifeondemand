@@ -9,12 +9,12 @@
     </div>
 
       <div class="home-headline">
-          <div class="scrolling-text">goodlifeondemandproductions</div>
+          <div class="scrolling-text">goodlifeondemand</div>
 
           <div class="home-headline-content">
             <div class="home-headline-copy">
-                <h1 class="title">Welcome to Good Life On Demand Productions!</h1>
-                <p class="subtitle">Good Life on Demand is here to provide a film truly personal and authentic for the most significant day in a couple’s relationship. We are a Pittsburgh and Los Angeles based videographers who are contracted all across the continental US. If you are planning a wedding with a concrete layout to celebrate the love of two people and rejoice with your friends and family, Good Life on Demand may be the perfect fit for you!</p>
+                <h1 class="title fade-item">Welcome to Good Life On Demand Productions!</h1>
+                <p class="subtitle fade-item">Good Life on Demand is here to provide a film truly personal and authentic for the most significant day in a couple’s relationship. We are a Pittsburgh and Los Angeles based videographers who are contracted all across the continental US. If you are planning a wedding with a concrete layout to celebrate the love of two people and rejoice with your friends and family, Good Life on Demand may be the perfect fit for you!</p>
             </div>
 
             <div class="slider-container">
@@ -35,15 +35,15 @@
 
       <section class="home-work">
         <div class="home-work-header">
-            <h2 class="home-work-title">Our Work</h2>
+            <h2 class="home-work-title fade-item">Our Work</h2>
         </div>
 
-        <div class="home-work-items">
+        <div class="home-work-items fade-item">
           <video-small v-for="(item, index) in workItems" :index="index" :key="index" :item="item"></video-small>
         </div>
 
         <div class="link-container">
-          <router-link to="/work">View All</router-link>
+          <router-link to="/work" class="fade-item">View All</router-link>
         </div>
       </section>
 
@@ -98,35 +98,66 @@ export default {
       window.scrollTo(0,0);
   },
   mounted() {
+    // global mount variables
+    let ww = window.innerWidth;
+    let wh = window.innerWidth;
+
     // Create animation for each petal
     let petals = document.querySelectorAll('.petal');
     const controller = new ScrollMagic.Controller;
 
-    TweenMax.to('.petal-1', {duration: 1, y: '-200px'});
-
     petals.forEach((petal) => {
-      // let rotationDirection = Math.random() >= .5 ? '-' : '+';
-      // // deltas for random movement
-      // let d1 = getRandomInt(100, 250),
-      //     d2 = getRandomInt(20, 100),
-      //     d3 = getRandomInt(70, 150),
-      //     d4 = getRandomInt(20, 100),
-      //     xd1 = getRandomInt(0, 20),
-      //     xd2 = getRandomInt(0, 20)
+      let rotationDirection = Math.random() >= .5 ? '-' : '+';
+      // deltas for random movement
+      let d1 = this.getRandomInt(100, 250),
+          d2 = this.getRandomInt(20, 100),
+          d3 = this.getRandomInt(70, 150),
+          d4 = this.getRandomInt(20, 100),
+          xd1 = this.getRandomInt(0, 20),
+          xd2 = this.getRandomInt(0, 20)
 
-      // let scene = new ScrollMagic.Scene({
-      //   triggerElement: petal,
-      //   triggerHook: 1,
-      //   duration: window.innerHeight
-      // })
-      // .on("progress", function (event) {
-      //   TweenMax.to(petal, {duration: 2, x: event.progress * xd1 + xd2, y: event.progress * d1 + d2, rotation: rotationDirection + (event.progress * d3 + d4)});
-      // })
-      // .addIndicators()
-      // .addTo(controller);
+      let scene = new ScrollMagic.Scene({
+        triggerElement: petal,
+        triggerHook: 1,
+        duration: wh
+      })
+      .on('progress', (event) => {
+        TweenMax.to(petal, 2, {x: event.progress * xd1 + xd2, y: event.progress * d1 + d2, rotation: rotationDirection + (event.progress * d3 + d4)});
+      })
+      .addTo(controller);
+
     });
 
-    function getRandomInt(min, max) {
+    // scrolling text
+    const scrollingItem = document.querySelector('.scrolling-text');
+    let scrollRect = scrollingItem.getBoundingClientRect();
+    let scrollAmt = scrollRect.left + (scrollRect.width - window.innerWidth); // amount that the scroll text should scroll so it goes all the way to the end
+
+    let scene = new ScrollMagic.Scene({
+      triggerElement: scrollingItem,
+      triggerHook: 1,
+      duration: wh + 500
+    })
+    .on('progress', function(e) {
+      TweenMax.to(scrollingItem, 2, {x: -(e.progress) * ww / 2, ease: Expo.easeOut});
+    })
+    .addTo(controller);
+
+    // fade-text
+    let fadeItems = document.querySelectorAll('.fade-item');
+    fadeItems.forEach((e) => {
+      TweenMax.set(e, {opacity: 0, y: '30px'});
+      let scene = new ScrollMagic.Scene({
+        triggerElement: e,
+        triggerHook: .85,
+      })
+      .setTween(TweenMax.to(e, .7, {y: 0, opacity: 1, ease: Expo.easeOut}))
+      .addTo(controller);
+    });
+  },
+
+  methods: {
+    getRandomInt(min, max) {
       min = Math.ceil(min);
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
@@ -199,10 +230,11 @@ export default {
 .home-headline {
   padding: 130px 0 160px;
   position: relative;
-  background: linear-gradient(45deg, rgba(233,168,157,1) 0%,rgba(240,158,95,0.5) 26%,rgba(247,147,30,0.5) 53%,rgba(247,146,33,0.5) 54%,rgba(255,123,172,0.3) 100%);
+  background: linear-gradient(45deg, rgba(233,168,157,.7) 0%,rgba(240,158,95,0.5) 26%,rgba(247,147,30,0.45) 53%,rgba(247,146,33,0.45) 54%,rgba(255,123,172,0.2) 100%);
 
   @media screen and (max-width: $screen-sm) {
-      padding: 100px 0;
+    padding: 100px 0;
+    background: linear-gradient(45deg, rgba(233,168,157,1) 0%,rgba(240,158,95,0.5) 26%,rgba(247,147,30,0.5) 53%,rgba(247,146,33,0.5) 54%,rgba(255,123,172,0.3) 100%);
   }
 
   h1 {
@@ -210,11 +242,19 @@ export default {
     font-size: 54px;
     max-width: 700px;
     margin: 100px 0 20px;
+
+    @media screen and (max-width: $screen-sm) {
+      font-size: 36px;
+    }
   }
 
   p {
     max-width: 620px;
     margin-left: 45px;
+
+    @media screen and (max-width: $screen-md) {
+      margin-left: 0;
+    }
   }
 
   &-content {
@@ -223,18 +263,31 @@ export default {
     padding: 0 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+    @media screen and (max-width: $screen-md) {
+      padding-right: 0;
+    }
+
+    @media screen and (max-width: $screen-sm) {
+      display: block;
+      padding: 0 20px;
+    }
   }
 
   .scrolling-text {
-    font-size: 200px;
+    font-size: 250px;
     opacity: .2;
     position: absolute;
     text-transform: uppercase;
     color: #fff;
     top: -20px;
-    left: 100px;
+    left: 10%;
     line-height: .8;
     font-family: $serif-thin;
+
+    @media screen and (max-width: $screen-sm) {
+      left: 0;
+    }
   }
 }
 
@@ -244,16 +297,25 @@ export default {
   align-items: center;
   position: relative;
 
+  @media screen and (max-width: $screen-sm) {
+    display: none;
+  }
+
   .slider {
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
+    width: 280px;
+    height: 475px;
   }
 
   .image {
-    width: 280px;
-    height: 475px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
     background-color: #fff;
     background-size: cover;
     background-position: center;
@@ -282,13 +344,28 @@ export default {
     top: -46px;
     right: 35%;
     transform: rotate(-11deg);
+
+    @media screen and (max-width: $screen-sm) {
+      top: -150px;
+      right: -5%;
+    }
   }
 
   &-2 {
     top: -40px;
-    left: calc(100% - 50px);
+    left: calc(100% - 10px);
     width: 110px;
     background-image: url('../assets/img/petals/petals-3.png');
+  }
+
+  &-3 {
+    top: -150px;
+  }
+
+  &-4 {
+    @media screen and (max-width: $screen-sm) {
+      display: none;
+    }
   }
 }
 
@@ -296,12 +373,22 @@ export default {
     margin-top: 160px;
     padding-bottom: 160px;
 
+    @media screen and (max-width: $screen-md) {
+      padding-bottom: 80px;
+    }
+
+    @media screen and (max-width: $screen-sm) {
+      margin-top: 100px;
+    }
+
     h2 {
         padding-bottom: 14px;
         display: inline-block;
         margin-bottom: 0;
         font-size: 70px;
         font-family: $serif-thin;
+        z-index: 1;
+        position: relative;
     }
 
     &-items {
