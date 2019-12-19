@@ -25,8 +25,9 @@ export default {
 .video-small-container {
   p {
     margin: 0 0 10px;
-    font-family: 'Dancing Script', cursive;
-    font-size: 24px;
+    font-family: $sans-serif;
+    font-size: 21px;
+    color: $gray-body;
   }
 
   .video-container {

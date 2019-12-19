@@ -1,8 +1,11 @@
 // Colors
-$accent: #FF9683;
-$gray-super-light: #f3f3f3;
-$gray-light: #ccc;
+// $accent: #FF9683;
+$accent: #e9a89d;
+$gray-lighter: #f3f3f3;
+$gray-light: #b7b7b7;
 $gray-dark: #222;
+$gray-body: #7a7a7a;
+$color-gradient: linear-gradient(45deg, rgba(233,168,157,1) 0%,rgba(240,158,95,0.5) 26%,rgba(247,147,30,0.5) 53%,rgba(247,146,33,0.5) 54%,rgba(255,123,172,0.3) 100%);
 
 // Breakpoints
 $screen-xl: 1400px;
@@ -13,3 +16,5 @@ $screen-xs: 500px;
 
 // Container Sizes
 $container-xl: 1440px;
+
+// Typography
