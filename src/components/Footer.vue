@@ -4,14 +4,14 @@
       <div class="footer-column">
         <h2>Contact</h2>
         <ul>
-          <li><a href="mailto:GoodLifeOnDemandProductions@gmail.com" class="email white-hover-link">goodlifeondemandproductions@gmail.com</a></li>
-          <li><a href="tel:724-986-7862" class="white-hover-link">724-986-7862</a></li>
+          <li><a href="mailto:GoodLifeOnDemandProductions@gmail.com" class="email">goodlifeondemandproductions@gmail.com</a></li>
+          <li><a href="tel:724-986-7862">724-986-7862</a></li>
         </ul>
       </div>
       <div class="footer-column">
         <h2>Social</h2>
         <ul>
-          <li><a href="https://vimeo.com/user97759962" target="_blank" class="white-hover-link">Vimeo</a></li>
+          <li><a href="https://vimeo.com/user97759962" target="_blank">Vimeo</a></li>
         </ul>
       </div>
     </div>
@@ -31,14 +31,14 @@ export default {
     .footer {
         width: 100%;
         padding: 60px 0;
-        background: linear-gradient(45deg, rgba(233,168,157,1) 0%,rgba(240,158,95,0.7) 26%,rgba(247,147,30,0.5) 53%,rgba(247,146,33,0.5) 54%,rgba(255,123,172,0.3) 100%);
+        background-color: $gray-lighter;
 
         a {
-          color: #fff;
+          color: $gray;
           transition: color .3s;
 
           &:hover {
-            color: $gray-lighter;
+            color: $accent;
             transition: color .3s;
           }
         }
@@ -46,8 +46,8 @@ export default {
         h2 {
           margin-bottom: 20px;
           padding-bottom: 14px;
-          color: #fff;
-          border-bottom: 1px solid #fff;
+          color: $gray;
+          border-bottom: 1px solid $gray-light;
         }
     }
 
@@ -63,7 +63,7 @@ export default {
       }
 
       .footer-column {
-        margin-right: 50px;
+        margin-right: 100px;
 
         @media screen and (max-width: $screen-sm) {
           margin: 0 0 50px 0;
