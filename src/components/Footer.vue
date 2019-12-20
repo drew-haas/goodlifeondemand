@@ -4,14 +4,14 @@
       <div class="footer-column">
         <h2>Contact</h2>
         <ul>
-          <li><a href="mailto:GoodLifeOnDemandProductions@gmail.com" class="email">goodlifeondemandproductions@gmail.com</a></li>
-          <li><a href="tel:724-986-7862">724-986-7862</a></li>
+          <li><a href="mailto:GoodLifeOnDemandProductions@gmail.com" class="email white-hover-link">goodlifeondemandproductions@gmail.com</a></li>
+          <li><a href="tel:724-986-7862" class="white-hover-link">724-986-7862</a></li>
         </ul>
       </div>
       <div class="footer-column">
         <h2>Social</h2>
         <ul>
-          <li><a href="https://vimeo.com/user97759962" target="_blank">Vimeo</a></li>
+          <li><a href="https://vimeo.com/user97759962" target="_blank" class="white-hover-link">Vimeo</a></li>
         </ul>
       </div>
     </div>

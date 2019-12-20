@@ -44,3 +44,31 @@ section {
     margin-bottom: 0;
   }
 }
+
+.white-hover-link {
+  position: relative;
+  transition: color .25s;
+  z-index: 1;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    transition: width .25s ease-out;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: $accent !important;
+    transition: color .25s;
+
+    &:before {
+      width: 100%;
+      transition: width .25s ease-out;
+    }
+  }
+}
