@@ -26,13 +26,18 @@
             <h2 class="home-work-title fade-item">Our Work</h2>
         </div>
 
-        <div class="home-work-items fade-item">
-          <video-small v-for="(item, index) in workItems" :index="index" :key="index" :item="item"></video-small>
+        <div class="home-work-container">
+          <video-small class="fade-item featured-video" :item="featuredItem"></video-small>
+
+          <div class="home-work-items fade-item">
+            <video-small v-for="(item, index) in workItems" :index="index" :key="index" :item="item"></video-small>
+          </div>
+
+          <div class="link-container">
+            <router-link to="/work" class="fade-item">View All</router-link>
+          </div>
         </div>
 
-        <div class="link-container">
-          <router-link to="/work" class="fade-item">View All</router-link>
-        </div>
       </section>
 
   </div>
@@ -57,17 +62,12 @@ export default {
   },
   data() {
     return {
+      featuredItem: {
+        title: 'Kazimer Wedding',
+        VIDEO_ID: '378695844',
+        type: 'vimeo'
+      },
       workItems: [
-        {
-          title: 'Heath Wedding',
-          VIDEO_ID: '355890720',
-          type: 'vimeo'
-        },
-        {
-          title: 'Kazimer Wedding',
-          VIDEO_ID: '378695844',
-          type: 'vimeo'
-        },
         {
             title: 'Walter Wedding',
             VIDEO_ID: '332339318',
@@ -253,7 +253,7 @@ export default {
 
 .home-work {
     margin-top: 160px;
-    padding-bottom: 160px;
+    padding-bottom: 120px;
 
     @media screen and (max-width: $screen-md) {
       padding-bottom: 80px;
@@ -264,18 +264,35 @@ export default {
     }
 
     h2 {
-        padding-bottom: 14px;
-        display: inline-block;
-        margin-bottom: 0;
-        font-size: 70px;
-        font-family: $serif-thin;
+        font-size: 120px;
+        margin: 0 0 30px -10px;
+        padding: 0;
+        font-family: $serif;
+        color: $gray-lighter;
         z-index: 1;
         position: relative;
 
         @media screen and (max-width: $screen-sm) {
-          font-size: 45px;
+          font-size: 56px;
           padding-bottom: 0;
         }
+    }
+
+    .featured-video {
+      margin-bottom: 46px;
+
+      @media screen and (max-width: $screen-sm) {
+        margin-bottom: 0;
+      }
+    }
+
+    &-container {
+      max-width: 80%;
+      margin: 0 auto;
+
+      @media screen and (max-width: $screen-sm) {
+        max-width: none;
+      }
     }
 
     &-items {

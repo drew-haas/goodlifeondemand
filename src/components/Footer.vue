@@ -32,6 +32,12 @@ export default {
         width: 100%;
         padding: 60px 0;
         background-color: $gray-lighter;
+        h2 {
+          margin-bottom: 20px;
+          padding-bottom: 14px;
+          color: $accent;
+          border-bottom: 1px solid $accent;
+        }
 
         a {
           color: $gray;
@@ -41,13 +47,6 @@ export default {
             color: $accent;
             transition: color .3s;
           }
-        }
-
-        h2 {
-          margin-bottom: 20px;
-          padding-bottom: 14px;
-          color: $gray;
-          border-bottom: 1px solid $gray-light;
         }
     }
 
