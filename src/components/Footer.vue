@@ -31,7 +31,7 @@ export default {
     .footer {
         width: 100%;
         padding: 60px 0;
-        background-color: $gray-lighter;
+        background-color: $gray-lightest;
         h2 {
           margin-bottom: 20px;
           padding-bottom: 14px;
