@@ -15,7 +15,7 @@
 
           <div class="home-headline-content">
             <div class="home-headline-copy">
-                <h1 class="title fade-item">Welcome to Good Life On Demand Productions!</h1>
+                <h1 class="title fade-item">Welcome to Good Life On Demand Productions!</h1>
                 <p class="subtitle fade-item">Good Life on Demand is here to provide a film truly personal and authentic for the most significant day in a couple’s relationship. We are a Pittsburgh and Los Angeles based videographers who are contracted all across the continental US. If you are planning a wedding with a concrete layout to celebrate the love of two people and rejoice with your friends and family, Good Life on Demand may be the perfect fit for you!</p>
             </div>
           </div>
@@ -195,6 +195,7 @@ export default {
     font-size: 54px;
     max-width: 700px;
     margin: 0 0 20px;
+    font-family: 'Dancing Script';
 
     @media screen and (max-width: $screen-sm) {
       font-size: 36px;
