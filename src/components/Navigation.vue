@@ -21,7 +21,7 @@ export default {
 
 <style lang="scss">
 .nav {
-    z-index: 1;
+    z-index: 2;
     position: fixed;
     width: 100%;
 

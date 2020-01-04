@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
+
+$font_path: '~@/assets/fonts/';
+
+@font-face {
+  font-family: 'Canela Medium';
+  src: url($font_path + 'Canela-Medium-Reduced.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Canela Thin';
+  src: url($font_path + 'Canela-Thin-Reduced.ttf') format('truetype');
+  font-weight: light;
+}
+
+/* Font Variables */
+$serif: 'Canela Medium';
+$serif-thin: 'Canela Thin';
+$font-book: 'Avenir';
+$sans-serif: 'Avenir';

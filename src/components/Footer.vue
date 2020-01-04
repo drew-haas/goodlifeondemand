@@ -4,7 +4,7 @@
       <div class="footer-column">
         <h2>Contact</h2>
         <ul>
-          <li><a href="mailto:GoodLifeOnDemandProductions@gmail.com" class="email">GoodLifeOnDemandProductions@gmail.com</a></li>
+          <li><a href="mailto:GoodLifeOnDemandProductions@gmail.com" class="email">goodlifeondemandproductions@gmail.com</a></li>
           <li><a href="tel:724-986-7862">724-986-7862</a></li>
         </ul>
       </div>
@@ -12,7 +12,6 @@
         <h2>Social</h2>
         <ul>
           <li><a href="https://vimeo.com/user97759962" target="_blank">Vimeo</a></li>
-          <!-- <li><a href="https://www.youtube.com/channel/UCGrjthRvy5eP1hIbF06DJEg/featured" target="_blank">Youtube</a></li> -->
         </ul>
       </div>
     </div>
@@ -32,22 +31,22 @@ export default {
     .footer {
         width: 100%;
         padding: 60px 0;
-        background-color: $gray-super-light;
+        background-color: $gray-lightest;
+        h2 {
+          margin-bottom: 20px;
+          padding-bottom: 14px;
+          color: $accent;
+          border-bottom: 1px solid $accent;
+        }
 
         a {
-          color: $gray-dark;
+          color: $gray;
           transition: color .3s;
 
           &:hover {
             color: $accent;
             transition: color .3s;
           }
-        }
-
-        h2 {
-          margin-bottom: 20px;
-          padding-bottom: 14px;
-          border-bottom: 1px solid $gray-light;
         }
     }
 
@@ -63,7 +62,7 @@ export default {
       }
 
       .footer-column {
-        margin-right: 50px;
+        margin-right: 100px;
 
         @media screen and (max-width: $screen-sm) {
           margin: 0 0 50px 0;

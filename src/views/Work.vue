@@ -35,6 +35,11 @@ export default {
           type: 'vimeo'
         },
         {
+          title: 'Rosemeier Wedding',
+          VIDEO_ID: '381977146',
+          type: 'vimeo'
+        },
+        {
           title: 'Heath Wedding',
           VIDEO_ID: '355890720',
           type: 'vimeo'
