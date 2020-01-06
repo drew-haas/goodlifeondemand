@@ -125,6 +125,7 @@ export default {
 <style lang="scss" scoped>
 .home-view {
   overflow: hidden;
+  background-color: tan;
 }
 
 .home {
