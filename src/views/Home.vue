@@ -15,8 +15,8 @@
 
           <div class="home-headline-content">
             <div class="home-headline-copy">
-                <h1 class="title fade-item">Welcome to Good Life On Demand Productions!</h1>
-                <p class="subtitle fade-item">Good Life on Demand is here to provide a film truly personal and authentic for the most significant day in a couple’s relationship. We are a Pittsburgh and Los Angeles based videographers who are contracted all across the continental US. If you are planning a wedding with a concrete layout to celebrate the love of two people and rejoice with your friends and family, Good Life on Demand may be the perfect fit for you!</p>
+                <h1 class="title fade-item">{{ fields.title }}</h1>
+                <p class="subtitle fade-item">{{ fields.description }}</p>
             </div>
           </div>
       </div>
@@ -25,12 +25,11 @@
         <div class="home-work-header">
             <h2 class="home-work-title fade-item">Our Work</h2>
         </div>
-
         <div class="home-work-container">
-          <video-small class="fade-item featured-video" :item="featuredItem"></video-small>
+          <video-small v-if="fields.featuredVideo" class="fade-item featured-video" :item="fields.featuredVideo"></video-small>
 
           <div class="home-work-items fade-item">
-            <video-small v-for="(item, index) in workItems" :index="index" :key="index" :item="item"></video-small>
+            <video-small v-for="(item, index) in fields.videos" :index="index" :key="index" :item="item"></video-small>
           </div>
 
           <div class="link-container">
@@ -45,15 +44,16 @@
 
 <script>
 /*
-    Work Items
+    Work Items (coming from prismic)
+    https://goodlifeondemandproductions.prismic.io/documents/working/
     -----------
-    id: must be unique
     title: title to be displayed with video
     VIDEO_ID: must match the unique video ID for the type used
     type: supports 'vimeo' or 'youtube'
 */
 import VideoSmall from '../components/VideoSmall';
 import { TweenMax } from 'gsap';
+import PrismicDOM from 'prismic-dom';
 
 export default {
   name: 'home',
@@ -62,49 +62,33 @@ export default {
   },
   data() {
     return {
-      featuredItem: {
-        title: 'Kazimer Wedding',
-        VIDEO_ID: '378695844',
-        type: 'vimeo'
-      },
-      workItems: [
-        {
-            title: 'Walter Wedding',
-            VIDEO_ID: '332339318',
-            type: 'vimeo'
-        },
-        {
-          title: 'Henney Wedding',
-          VIDEO_ID: '373809922',
+      fields: {
+        title: null,
+        description: null,
+        featuredVideo: {
+          title: '',
+          VIDEO_ID: '',
           type: 'vimeo'
         },
-      ]
+        videos: []
+      }
     }
   },
   beforeCreate() {
       document.body.className = 'home';
       window.scrollTo(0,0);
+
+      this.featuredId = '';
+      this.videoIds = [];
+  },
+  created() {
+    this.getContent();
   },
   mounted() {
     // global mount variables
     const controller = new ScrollMagic.Controller;
     let ww = window.innerWidth;
     let wh = window.innerWidth;
-
-    // scrolling text
-    // const scrollingItem = document.querySelector('.scrolling-text');
-    // let scrollRect = scrollingItem.getBoundingClientRect();
-    // let scrollAmt = scrollRect.left + (scrollRect.width - window.innerWidth); // amount that the scroll text should scroll so it goes all the way to the end
-
-    // let scene = new ScrollMagic.Scene({
-    //   triggerElement: scrollingItem,
-    //   triggerHook: 1,
-    //   duration: wh + 500
-    // })
-    // .on('progress', function(e) {
-    //   TweenMax.to(scrollingItem, 2, {x: -(e.progress) * ww / 2, ease: Expo.easeOut});
-    // })
-    // .addTo(controller);
 
     // fade-text
     let fadeItems = document.querySelectorAll('.fade-item');
@@ -117,6 +101,44 @@ export default {
       .setTween(TweenMax.to(e, .7, {y: 0, opacity: 1, ease: Expo.easeOut}))
       .addTo(controller);
     });
+
+  },
+  methods: {
+    getContent() {
+
+      this.$prismic.client.getSingle('home').then((document) => {
+        // set home fields
+        this.fields.title = document.data.title[0].text;
+        this.fields.description = document.data.description[0].text;
+        this.featuredId = document.data.featured_video.id;
+        document.data.videos.forEach((e) => {
+          this.videoIds.push(e.video.id);
+        });
+
+      }).then(() => {
+
+        // featured video
+        this.$prismic.client.query(
+          this.$prismic.Predicates.at('document.id', this.featuredId),
+        ).then((response) => {
+          this.fields.featuredVideo.title = response.results[0].data.video_title[0].text;
+          this.fields.featuredVideo.VIDEO_ID = response.results[0].data.video_id;
+        });
+
+        // other videos
+        this.$prismic.client.query(
+          this.$prismic.Predicates.in('document.id', this.videoIds),
+        ).then((response) => {
+          response.results.forEach(e => {
+            this.fields.videos.push({
+              title: e.data.video_title[0].text,
+              VIDEO_ID: e.data.video_id,
+              type: 'vimeo'
+            })
+          });
+        });
+      });
+    }
   }
 }
 </script>

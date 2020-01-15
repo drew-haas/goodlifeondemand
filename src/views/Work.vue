@@ -3,12 +3,12 @@
         <div class="overlay-image" :style="{backgroundImage: 'url(' + require('@/assets/img/work-hero.jpg')}"></div>
 
         <section class="work-hero">
-            <h1>Work</h1>
-            <p>Weddings from small to large. Check out our video compilations below.</p>
+            <h1>{{fields.title}}</h1>
+            <p>{{fields.subtitle}}</p>
         </section>
 
         <section class="videos-container">
-          <video-small v-for="(item, index) in workItems" :index="index" :key="index" :item="item"></video-small>
+          <video-small v-for="(item, index) in fields.videos" :index="index" :key="index" :item="item"></video-small>
         </section>
     </div>
 </template>
@@ -23,53 +23,91 @@ export default {
   },
   data() {
     return {
-      workItems: [
-        {
-          title: 'Kazimer Wedding',
-          VIDEO_ID: '378695844',
-          type: 'vimeo'
-        },
-        {
-          title: 'Henney Wedding',
-          VIDEO_ID: '373809922',
-          type: 'vimeo'
-        },
-        {
-          title: 'Rosemeier Wedding',
-          VIDEO_ID: '381977146',
-          type: 'vimeo'
-        },
-        {
-          title: 'Heath Wedding',
-          VIDEO_ID: '355890720',
-          type: 'vimeo'
-        },
-        {
-          title: 'Fornear Wedding',
-          VIDEO_ID: '337074132',
-          type: 'vimeo'
-        },
-        {
-          title: 'Walter Wedding',
-          VIDEO_ID: '332339318',
-          type: 'vimeo'
-        },
-        {
-          title: 'Hall Wedding',
-          VIDEO_ID: '340514758',
-          type: 'vimeo'
-        },
-        {
-          title: 'Landman Wedding',
-          VIDEO_ID: '340515268',
-          type: 'vimeo'
-        }
-      ]
+      fields: {
+        title: '',
+        subtitle: '',
+        videos: []
+      },
+      // workItems: [
+      //   {
+      //     title: 'Kazimer Wedding',
+      //     VIDEO_ID: '378695844',
+      //     type: 'vimeo'
+      //   },
+      //   {
+      //     title: 'Henney Wedding',
+      //     VIDEO_ID: '373809922',
+      //     type: 'vimeo'
+      //   },
+      //   {
+      //     title: 'Rosemeier Wedding',
+      //     VIDEO_ID: '381977146',
+      //     type: 'vimeo'
+      //   },
+      //   {
+      //     title: 'Heath Wedding',
+      //     VIDEO_ID: '355890720',
+      //     type: 'vimeo'
+      //   },
+      //   {
+      //     title: 'Fornear Wedding',
+      //     VIDEO_ID: '337074132',
+      //     type: 'vimeo'
+      //   },
+      //   {
+      //     title: 'Walter Wedding',
+      //     VIDEO_ID: '332339318',
+      //     type: 'vimeo'
+      //   },
+      //   {
+      //     title: 'Hall Wedding',
+      //     VIDEO_ID: '340514758',
+      //     type: 'vimeo'
+      //   },
+      //   {
+      //     title: 'Landman Wedding',
+      //     VIDEO_ID: '340515268',
+      //     type: 'vimeo'
+      //   }
+      // ]
     }
   },
   beforeCreate() {
     document.body.className = 'work';
     window.scrollTo(0, 0);
+
+    this.videoIds = [];
+  },
+  created() {
+    this.getContent();
+  },
+  methods: {
+    getContent() {
+
+      this.$prismic.client.getSingle('work').then((document) => {
+
+        this.fields.title = document.data.title[0].text;
+        this.fields.subtitle = document.data.subtitle[0].text;
+        document.data.videos.forEach(e => {
+          this.videoIds.push(e.video.id);
+        });
+
+      }).then(() => {
+
+        this.$prismic.client.query(
+          this.$prismic.Predicates.in('document.id', this.videoIds),
+        ).then((response) => {
+          response.results.forEach(e => {
+            this.fields.videos.push({
+              title: e.data.video_title[0].text,
+              VIDEO_ID: e.data.video_id,
+              type: 'vimeo'
+            })
+          });
+        });
+
+      });
+    }
   }
 }
 </script>
