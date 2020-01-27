@@ -53,7 +53,7 @@
     type: supports 'vimeo' or 'youtube'
 */
 import VideoSmall from '../components/VideoSmall';
-import { TweenMax } from 'gsap';
+import { TweenMax, Expo } from 'gsap';
 
 export default {
   name: 'home',
