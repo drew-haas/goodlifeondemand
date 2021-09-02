@@ -52,8 +52,8 @@
     type: supports 'vimeo' or 'youtube'
 */
 import VideoSmall from '../components/VideoSmall';
-import { TweenMax } from 'gsap';
 import PrismicDOM from 'prismic-dom';
+import { TweenMax, Expo } from 'gsap';
 
 export default {
   name: 'home',
