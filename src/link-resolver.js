@@ -10,5 +10,6 @@ export default function (doc) {
   }
 
   // Default to the root
+  // return "/404" -- to default to 404 page
   return '/';
 };

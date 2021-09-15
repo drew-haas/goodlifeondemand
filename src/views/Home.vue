@@ -52,8 +52,7 @@
     type: supports 'vimeo' or 'youtube'
 */
 import VideoSmall from '../components/VideoSmall';
-import PrismicDOM from 'prismic-dom';
-import { TweenMax, Expo } from 'gsap';
+import { gsap, Expo } from 'gsap';
 
 export default {
   name: 'home',
@@ -93,12 +92,12 @@ export default {
     // fade-text
     let fadeItems = document.querySelectorAll('.fade-item');
     fadeItems.forEach((e) => {
-      TweenMax.set(e, {opacity: 0, y: '30px'});
+      gsap.set(e, {opacity: 0, y: '30px'});
       let scene = new ScrollMagic.Scene({
         triggerElement: e,
         triggerHook: .85,
       })
-      .setTween(TweenMax.to(e, .7, {y: 0, opacity: 1, ease: Expo.easeOut}))
+      .setTween(gsap.to(e, {duration: .7, y: 0, opacity: 1, ease: Expo.easeOut}))
       .addTo(controller);
     });
 
@@ -110,6 +109,8 @@ export default {
         // set home fields
         this.fields.title = document.data.title[0].text;
         this.fields.description = document.data.description[0].text;
+
+        // set video ID's
         this.featuredId = document.data.featured_video.id;
         document.data.videos.forEach((e) => {
           this.videoIds.push(e.video.id);

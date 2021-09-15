@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import PrismicVue from 'prismic-vue';
-import PrismicDOM from 'prismic-dom';
+// import PrismicDOM from 'prismic-dom';
 import linkResolver from './link-resolver';
 import VueGtag from "vue-gtag";
 
