@@ -1,44 +1,45 @@
 <template>
-	<div class="home-view">
-		<div class="home-hero">
-			<video class="home-bg-video" autoplay loop muted>
-				<source src="https://goodlifeondemandproductions.s3-us-west-1.amazonaws.com/hall-wedding.mp4" type="video/mp4">
-			</video>
+  <div class="home-view">
+    <div class="home-hero" role="presentation">
+        <video class="home-bg-video" autoplay loop muted playsinline>
+          <source src="https://goodlifeondemandproductions.s3-us-west-1.amazonaws.com/hall-wedding.mp4" type="video/mp4">
+        </video>
 
-			<div class="down-arrow"></div>
-		</div>
+        <div class="down-arrow"></div>
+    </div>
 
-		<div class="home-headline">
-			<img src="../assets/img/flower-bg.jpg" alt="Flower Background" class="home-headline-image">
+      <div class="home-headline">
+          <img src="../assets/img/flower-bg.jpg" alt="Flower Background" class="home-headline-image">
 
-			<div class="scrolling-text">goodlifeondemand</div>
+          <div class="scrolling-text">goodlifeondemand</div>
 
-			<div class="home-headline-content">
-				<div class="home-headline-copy">
-					<h1 class="title fade-item">{{ fields.title }}</h1>
-					<p class="subtitle fade-item">{{ fields.description }}</p>
-				</div>
-			</div>
-		</div>
+          <div class="home-headline-content">
+            <div class="home-headline-copy">
+                <h1 class="title fade-item">{{ fields.title }}</h1>
+                <p class="subtitle fade-item">{{ fields.description }}</p>
+            </div>
+          </div>
+      </div>
 
-		<section class="home-work">
-			<div class="home-work-header">
-				<h2 class="home-work-title fade-item">Our Work</h2>
-			</div>
+      <section class="home-work">
+        <div class="home-work-header">
+            <h2 class="home-work-title fade-item">Our Work</h2>
+        </div>
+        <div class="home-work-container">
+          <video-small v-if="fields.featuredVideo" class="fade-item featured-video" :item="fields.featuredVideo"></video-small>
 
-			<div class="home-work-container">
-				<video-small v-if="fields.featuredVideo" class="fade-item featured-video" :item="fields.featuredVideo"></video-small>
+          <div class="home-work-items fade-item">
+            <video-small v-for="(item, index) in fields.videos" :index="index" :key="index" :item="item"></video-small>
+          </div>
 
-				<div class="home-work-items fade-item">
-					<video-small v-for="(item, index) in fields.videos" :index="index" :key="index" :item="item"></video-small>
-				</div>
+          <div class="link-container">
+            <router-link to="/work" class="fade-item">View All</router-link>
+          </div>
+        </div>
 
-				<div class="link-container">
-					<router-link to="/work" class="fade-item">View All</router-link>
-				</div>
-			</div>
-		</section>
-	</div>
+      </section>
+
+  </div>
 </template>
 
 <script>
@@ -205,11 +206,15 @@ export default {
 }
 
 .home-bg-video {
-	@include center(absolute);
-	min-width: 100%;
-	min-height: 100%;
-	opacity: .8;
-	pointer-events: none;
+    @include center(absolute);
+    min-width: 100%;
+    min-height: 100%;
+    opacity: .8;
+    pointer-events: none;
+
+    video {
+      pointer-events: none;
+    }
 }
 
 .home-headline {
