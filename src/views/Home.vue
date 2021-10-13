@@ -1,6 +1,6 @@
 <template>
   <div class="home-view">
-    <div class="home-hero">
+    <div class="home-hero" role="presentation">
         <video class="home-bg-video" autoplay loop muted>
           <source src="https://goodlifeondemandproductions.s3-us-west-1.amazonaws.com/hall-wedding.mp4" type="video/mp4">
         </video>
@@ -203,6 +203,10 @@ export default {
     min-height: 100%;
     opacity: .8;
     pointer-events: none;
+
+    video {
+      pointer-events: none;
+    }
 }
 
 .home-headline {
