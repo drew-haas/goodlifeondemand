@@ -120,6 +120,10 @@ export default {
 .work-hero {
   max-width: 900px;
   margin: 0 auto 50px;
+
+  @media screen and (max-width: $screen-sm) {
+    margin-top: -37px;
+  }
 }
 
 h1 {
@@ -143,7 +147,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(255,255,255,1) 100%);
+    background: linear-gradient(180deg,rgba(255,255,255,0), rgba(255,255,255,1));
   }
 }
 
