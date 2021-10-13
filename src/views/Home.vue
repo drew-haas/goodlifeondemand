@@ -1,7 +1,7 @@
 <template>
   <div class="home-view">
     <div class="home-hero" role="presentation">
-        <video class="home-bg-video" autoplay loop muted>
+        <video class="home-bg-video" autoplay loop muted playsinline>
           <source src="https://goodlifeondemandproductions.s3-us-west-1.amazonaws.com/hall-wedding.mp4" type="video/mp4">
         </video>
 
