@@ -23,7 +23,7 @@
 
       <section class="home-work">
         <div class="home-work-header">
-            <h2 class="home-work-title fade-item">Our Work</h2>
+            <h2 class="home-work-title fade-item">Weddings</h2>
         </div>
         <div class="home-work-container">
           <video-small v-if="fields.featuredVideo" class="fade-item featured-video" :item="fields.featuredVideo"></video-small>
@@ -33,7 +33,7 @@
           </div>
 
           <div class="link-container">
-            <router-link to="/work" class="fade-item">View All</router-link>
+            <router-link to="/weddings" class="fade-item">View All</router-link>
           </div>
         </div>
 

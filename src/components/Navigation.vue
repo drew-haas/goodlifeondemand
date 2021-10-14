@@ -5,7 +5,7 @@
                 <img src="../assets/img/glod-logo-white.png" alt="Good Life on Demand Logo">
             </router-link>
             <div class="links">
-                <router-link to="/work">Weddings</router-link>
+                <router-link to="/weddings">Weddings</router-link>
             </div>
         </div>
     </div>
