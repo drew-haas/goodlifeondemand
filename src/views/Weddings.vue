@@ -1,8 +1,8 @@
 <template>
-    <div class="work-view page-wrapper">
+    <div class="weddings-view page-wrapper">
         <div class="overlay-image" :style="{backgroundImage: 'url(' + require('@/assets/img/work-hero.jpg')}"></div>
 
-        <section class="work-hero">
+        <section class="weddings-hero">
             <h1>{{fields.title}}</h1>
             <p>{{fields.subtitle}}</p>
         </section>
@@ -17,7 +17,7 @@
 import VideoSmall from '../components/VideoSmall';
 
 export default {
-  name: 'Work',
+  name: 'Weddings',
   components: {
     'video-small': VideoSmall
   },
@@ -73,7 +73,7 @@ export default {
     }
   },
   beforeCreate() {
-    document.body.className = 'work';
+    document.body.className = 'weddings';
     window.scrollTo(0, 0);
 
     this.videoIds = [];
@@ -117,7 +117,7 @@ export default {
   padding-top: 300px;
 }
 
-.work-hero {
+.weddings-hero {
   max-width: 900px;
   margin: 0 auto 50px;
 

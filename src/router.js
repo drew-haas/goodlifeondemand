@@ -15,10 +15,10 @@ export default new Router({
         props: { lightNav: true }
     },
     {
-        path: '/work',
-        name: 'work',
+        path: '/weddings',
+        name: 'weddings',
         props: { lightNav: false },
-        component: () => import('./views/Work.vue')
+        component: () => import('./views/Weddings.vue')
     },
     {
         path: '/contact',
