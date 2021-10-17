@@ -44,7 +44,7 @@
 
 <script>
 /*
-    Work Items (coming from prismic)
+    Work Items (coming from Prismic)
     https://goodlifeondemandproductions.prismic.io/documents/working/
     -----------
     title: title to be displayed with video
@@ -52,149 +52,157 @@
     type: supports 'vimeo' or 'youtube'
 */
 import VideoSmall from '../components/VideoSmall';
-import { gsap, Expo } from 'gsap';
+import { gsap, ScrollTrigger, Expo } from "gsap/all";
 
 export default {
-  name: 'home',
-  components: {
-    'video-small': VideoSmall
-  },
-  data() {
-    return {
-      fields: {
-        title: null,
-        description: null,
-        featuredVideo: {
-          title: '',
-          VIDEO_ID: '',
-          type: 'vimeo'
-        },
-        videos: []
-      }
-    }
-  },
-  beforeCreate() {
-      document.body.className = 'home';
-      window.scrollTo(0,0);
+	name: 'home',
+	components: {
+	'video-small': VideoSmall
+	},
+	data() {
+		return {
+			fields: {
+				title: null,
+				description: null,
+				featuredVideo: {
+					title: '',
+					VIDEO_ID: '',
+					type: 'vimeo'
+				},
+				videos: []
+			}
+		}
+	},
 
-      this.featuredId = '';
-      this.videoIds = [];
-  },
-  created() {
-    this.getContent();
-  },
-  mounted() {
-    // global mount variables
-    const controller = new ScrollMagic.Controller;
-    let ww = window.innerWidth;
-    let wh = window.innerWidth;
+	beforeCreate() {
+		document.body.className = 'home';
+		window.scrollTo(0,0);
 
-    // fade-text
-    let fadeItems = document.querySelectorAll('.fade-item');
-    fadeItems.forEach((e) => {
-      gsap.set(e, {opacity: 0, y: '30px'});
-      let scene = new ScrollMagic.Scene({
-        triggerElement: e,
-        triggerHook: .85,
-      })
-      .setTween(gsap.to(e, {duration: .7, y: 0, opacity: 1, ease: Expo.easeOut}))
-      .addTo(controller);
-    });
+		this.featuredId = '';
+		this.videoIds = [];
+	},
 
-  },
-  methods: {
-    getContent() {
+	created() {
+		this.getContent();
+	},
 
-      this.$prismic.client.getSingle('home').then((document) => {
-        // set home fields
-        this.fields.title = document.data.title[0].text;
-        this.fields.description = document.data.description[0].text;
+	mounted() {
+		gsap.registerPlugin(ScrollTrigger);
 
-        // set video ID's
-        this.featuredId = document.data.featured_video.id;
-        document.data.videos.forEach((e) => {
-          this.videoIds.push(e.video.id);
-        });
+		// fade-text
+		const fadeItems = document.querySelectorAll('.fade-item');
 
-      }).then(() => {
+		fadeItems.forEach(fadeItem => {
+			// gsap.set(fadeItem, {opacity: 0, y: '30px'});
 
-        // featured video
-        this.$prismic.client.query(
-          this.$prismic.Predicates.at('document.id', this.featuredId),
-        ).then((response) => {
-          this.fields.featuredVideo.title = response.results[0].data.video_title[0].text;
-          this.fields.featuredVideo.VIDEO_ID = response.results[0].data.video_id;
-        });
+			// Gsap simple fade animation
+			gsap.to(fadeItem, {
+				duration: .7,
+				scrollTrigger: {
+					markers: true,
+					trigger: fadeItem,
+					start: "top 90%",
+					end: "top 90%",
+					toggleActions: "play none reverse none"
+				},
+				y: 0,
+				opacity: 1,
+				ease: "power4.out"
+			});
+		});
+	},
 
-        // other videos
-        this.$prismic.client.query(
-          this.$prismic.Predicates.in('document.id', this.videoIds),
-        ).then((response) => {
-          response.results.forEach(e => {
-            this.fields.videos.push({
-              title: e.data.video_title[0].text,
-              VIDEO_ID: e.data.video_id,
-              type: 'vimeo'
-            })
-          });
-        });
-      });
-    }
-  }
+	methods: {
+		getContent() {
+			this.$prismic.client.getSingle('home').then((document) => {
+				// set home fields
+				this.fields.title = document.data.title[0].text;
+				this.fields.description = document.data.description[0].text;
+
+				// set video ID's
+				this.featuredId = document.data.featured_video.id;
+				document.data.videos.forEach((e) => {
+					this.videoIds.push(e.video.id);
+				});
+			}).then(() => {
+				// featured video
+				this.$prismic.client.query( this.$prismic.Predicates.at('document.id', this.featuredId) ).then((response) => {
+					this.fields.featuredVideo.title = response.results[0].data.video_title[0].text;
+					this.fields.featuredVideo.VIDEO_ID = response.results[0].data.video_id;
+				});
+
+				// other videos
+				this.$prismic.client.query( this.$prismic.Predicates.in('document.id', this.videoIds) ).then((response) => {
+					response.results.forEach(e => {
+						this.fields.videos.push({
+							title: e.data.video_title[0].text,
+							VIDEO_ID: e.data.video_id,
+							type: 'vimeo'
+						})
+					});
+				});
+			});
+		}
+	}
 }
 </script>
 
 
 <style lang="scss" scoped>
+.fade-item {
+	opacity: 0;
+	transform: translateY(50px);
+}
+
 .home-view {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 .home {
-  .nav {
-      position: absolute;
-      width: 100%;
+	.nav {
+		position: absolute;
+		width: 100%;
 
-      a {
-          color: #fff;
-          transition: color .3s;
+		a {
+			color: #fff;
+			transition: color .3s;
 
-          &:hover {
-              color: $accent;
-              transition: color .3s;
-          }
-      }
-  }
+			&:hover {
+				color: $accent;
+				transition: color .3s;
+			}
+		}
+	}
 }
 
 .home-hero {
-  height: 100vh;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-color: #000;
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-  position: relative;
-  overflow: hidden;
-  max-height: 1024px;
+	height: 100vh;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-color: #000;
+	background-size: cover;
+	background-position: center;
+	z-index: -1;
+	position: relative;
+	overflow: hidden;
+	max-height: 1024px;
 
-  &:before {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 10%;
-      pointer-events: none;
-      background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-      z-index: 1;
-      position: relative;
-      opacity: .7;
-      display: none;
-  }
+	&:before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 10%;
+		pointer-events: none;
+		background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+		z-index: 1;
+		position: relative;
+		opacity: .7;
+		display: none;
+	}
 
-  @media screen and (max-width: $screen-xs) {
-    max-height: 400px;
-  }
+	@media screen and (max-width: $screen-xs) {
+		max-height: 400px;
+	}
 }
 
 .home-bg-video {
@@ -210,153 +218,153 @@ export default {
 }
 
 .home-headline {
-  padding: 300px 0 80px;
-  position: relative;
+	padding: 300px 0 80px;
+	position: relative;
 
-  @media screen and (max-width: $screen-sm) {
-    padding: 100px 0 80px;
-  }
+	@media screen and (max-width: $screen-sm) {
+		padding: 100px 0 80px;
+	}
 
-  h1 {
-    color: $accent;
-    font-size: 54px;
-    max-width: 700px;
-    margin: 0 0 20px;
-    font-family: 'Dancing Script';
+	h1 {
+		color: $accent;
+		font-size: 54px;
+		max-width: 700px;
+		margin: 0 0 20px;
+		font-family: 'Dancing Script';
 
-    @media screen and (max-width: $screen-sm) {
-      font-size: 36px;
-    }
-  }
+		@media screen and (max-width: $screen-sm) {
+			font-size: 36px;
+		}
+	}
 
-  p {
-    max-width: 620px;
-    margin-left: 40px;
+	p {
+		max-width: 620px;
+		margin-left: 40px;
 
-    @media screen and (max-width: $screen-md) {
-      margin-left: 0;
-    }
-  }
+		@media screen and (max-width: $screen-md) {
+			margin-left: 0;
+		}
+	}
 
-  &-content {
-    max-width: 1440px;
-    margin: 0 auto;
-    width: 90%;
+	&-content {
+		max-width: 1440px;
+		margin: 0 auto;
+		width: 90%;
 
-    @media screen and (max-width: $screen-sm) {
-      padding: 0 20px;
-    }
-  }
+		@media screen and (max-width: $screen-sm) {
+			padding: 0 20px;
+		}
+	}
 
-  &-image {
-    width: 100%;
-    max-width: 1300px;
-    position: absolute;
-    top: 0;
-    right: -120px;
-    z-index: -1;
-    opacity: .9;
+	&-image {
+		width: 100%;
+		max-width: 1300px;
+		position: absolute;
+		top: 0;
+		right: -120px;
+		z-index: -1;
+		opacity: .9;
 
-    @media screen and (max-width: $screen-sm) {
-      display: none;
-    }
-  }
+		@media screen and (max-width: $screen-sm) {
+			display: none;
+		}
+	}
 
-  .scrolling-text {
-    font-size: 250px;
-    opacity: .4;
-    position: absolute;
-    text-transform: uppercase;
-    color: $gray-lighter;
-    top: -10px;
-    left: -23px;
-    line-height: 1;
-    font-family: $serif-thin;
+	.scrolling-text {
+		font-size: 250px;
+		opacity: .4;
+		position: absolute;
+		text-transform: uppercase;
+		color: $gray-lighter;
+		top: -10px;
+		left: -23px;
+		line-height: 1;
+		font-family: $serif-thin;
 
-    @media screen and (max-width: $screen-sm) {
-      display: none;
-    }
-  }
+		@media screen and (max-width: $screen-sm) {
+			display: none;
+		}
+	}
 }
 
 .home-work {
-    margin-top: 160px;
-    padding-bottom: 120px;
+	margin-top: 160px;
+	padding-bottom: 120px;
 
-    @media screen and (max-width: $screen-md) {
-      padding-bottom: 80px;
-    }
+	@media screen and (max-width: $screen-md) {
+		padding-bottom: 80px;
+	}
 
-    @media screen and (max-width: $screen-sm) {
-      margin-top: 50px;
-    }
+	@media screen and (max-width: $screen-sm) {
+		margin-top: 50px;
+	}
 
-    h2 {
-        font-size: 120px;
-        margin: 0 0 30px -10px;
-        padding: 0;
-        font-family: $serif;
-        color: $gray-lighter;
-        z-index: 1;
-        position: relative;
+	h2 {
+		font-size: 120px;
+		margin: 0 0 30px -10px;
+		padding: 0;
+		font-family: $serif;
+		color: $gray-lighter;
+		z-index: 1;
+		position: relative;
 
-        @media screen and (max-width: $screen-sm) {
-          font-size: 56px;
-          padding-bottom: 0;
-        }
-    }
+		@media screen and (max-width: $screen-sm) {
+			font-size: 56px;
+			padding-bottom: 0;
+		}
+	}
 
-    .featured-video {
-      margin-bottom: 46px;
+	.featured-video {
+		margin-bottom: 46px;
 
-      @media screen and (max-width: $screen-sm) {
-        margin-bottom: 0;
-      }
-    }
+		@media screen and (max-width: $screen-sm) {
+			margin-bottom: 0;
+		}
+	}
 
-    &-container {
-      max-width: 80%;
-      margin: 0 auto;
+	&-container {
+		max-width: 80%;
+		margin: 0 auto;
 
-      @media screen and (max-width: $screen-sm) {
-        max-width: none;
-      }
-    }
+		@media screen and (max-width: $screen-sm) {
+			max-width: none;
+		}
+	}
 
-    &-items {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      margin: 40px auto 60px;
-      grid-gap: 3em;
+	&-items {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		margin: 40px auto 60px;
+		grid-gap: 3em;
 
-      @media screen and (max-width: $screen-sm) {
-          grid-template-columns: 1fr;
-      }
-    }
+		@media screen and (max-width: $screen-sm) {
+			grid-template-columns: 1fr;
+		}
+	}
 }
 
 .link-container {
-  width: 100%;
-  text-align: center;
+	width: 100%;
+	text-align: center;
 
-  a {
-    text-transform: uppercase;
-    font-size: 15px;
-    letter-spacing: 2px;
-    font-weight: bold;
-    color: $accent;
-    border: 1px solid $accent;
-    padding: 8px 16px;
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    transition: color .3s, background-color .3s;
+	a {
+		text-transform: uppercase;
+		font-size: 15px;
+		letter-spacing: 2px;
+		font-weight: bold;
+		color: $accent;
+		border: 1px solid $accent;
+		padding: 8px 16px;
+		position: relative;
+		overflow: hidden;
+		display: inline-block;
+		transition: color .3s, background-color .3s;
 
-    &:hover {
-      color: #fff;
-      background-color: $accent;
-      transition: color .3s, background-color .3s;
-    }
-  }
+		&:hover {
+			color: #fff;
+			background-color: $accent;
+			transition: color .3s, background-color .3s;
+		}
+	}
 }
 </style>
