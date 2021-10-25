@@ -23,7 +23,7 @@
 
       <section class="home-work">
         <div class="home-work-header">
-            <h2 class="home-work-title fade-item">Weddings</h2>
+            <h2 class="section-header home-work-title fade-item">Weddings</h2>
         </div>
         <div class="home-work-container">
           <video-small v-if="fields.featuredVideo" class="fade-item featured-video" :item="fields.featuredVideo"></video-small>
@@ -39,6 +39,9 @@
 
       </section>
 
+      <!-- Testimonals Section! -->
+      <Testimonials/>
+
   </div>
 </template>
 
@@ -52,12 +55,14 @@
     type: supports 'vimeo' or 'youtube'
 */
 import VideoSmall from '../components/VideoSmall';
+import Testimonials from '../components/Testimonials';
 import { gsap, Expo } from 'gsap';
 
 export default {
   name: 'home',
   components: {
-    'video-small': VideoSmall
+    'video-small': VideoSmall,
+    Testimonials
   },
   data() {
     return {
@@ -289,21 +294,6 @@ export default {
 
     @media screen and (max-width: $screen-sm) {
       margin-top: 50px;
-    }
-
-    h2 {
-        font-size: 120px;
-        margin: 0 0 30px -10px;
-        padding: 0;
-        font-family: $serif;
-        color: $gray-lighter;
-        z-index: 1;
-        position: relative;
-
-        @media screen and (max-width: $screen-sm) {
-          font-size: 56px;
-          padding-bottom: 0;
-        }
     }
 
     .featured-video {
