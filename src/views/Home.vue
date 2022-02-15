@@ -1,11 +1,14 @@
 <template>
   <div class="home-view">
     <div class="home-hero" role="presentation">
-        <video class="home-bg-video" autoplay loop muted playsinline>
+        <!-- <video class="home-bg-video" autoplay loop muted playsinline>
           <source src="https://goodlifeondemandproductions.s3-us-west-1.amazonaws.com/hall-wedding.mp4" type="video/mp4">
-        </video>
+        </video> -->
+      <div class="vimeo-wrapper">
+        <iframe src="https://player.vimeo.com/video/676497734?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
 
-        <div class="down-arrow"></div>
+      <div class="down-arrow"></div>
     </div>
 
       <div class="home-headline">
@@ -46,7 +49,7 @@
 /*
     Work Items (coming from prismic)
     https://goodlifeondemandproductions.prismic.io/documents/working/
-    -----------
+
     title: title to be displayed with video
     VIDEO_ID: must match the unique video ID for the type used
     type: supports 'vimeo' or 'youtube'
@@ -207,6 +210,28 @@ export default {
     video {
       pointer-events: none;
     }
+}
+
+.vimeo-wrapper {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -1;
+   pointer-events: none;
+   overflow: hidden;
+}
+
+.vimeo-wrapper iframe {
+   width: 100vw;
+   height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+   min-height: 100vh;
+   min-width: 177.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
 }
 
 .home-headline {
