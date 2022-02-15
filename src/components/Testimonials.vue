@@ -3,15 +3,8 @@
         <div class="testimonials-header">
             <h2 class="section-header fade-item">Testimonials</h2>
         </div>
-        <!-- <div class="testimonials-slider">
-            <div class="slide testimonial">
-                <div class="testimonial-copy">Michael was professional and provided us with exactly what we wanted. I would definitely recommend!</div>
-                <div class="testimonial-picture"></div>
-                <div class="testimonial-author">Phoebe Bridgers</div>
-            </div>
-        </div> -->
 
-        <vueper-slides class="no-shadow" fade fixed-height="true">
+        <vueper-slides class="no-shadow" fade>
             <vueper-slide v-for="(slide, i) in this.response" :key="i">
                 <template #content>
                     <div class="testimonial">
@@ -34,31 +27,16 @@ export default {
     name: 'Testimonials',
     components: { VueperSlides, VueperSlide },
     data: () => ({
-        slides: [
-            {
-                copy: 'Michael was professional and provided us with exactly what we wanted. I would definitely recommend!',
-                author: 'Phoebe Bridgers',
-            },
-            {
-                copy: 'He be slanging',
-                author: 'Drew Haas'
-            },
-            {
-                copy: 'One time I saw him unleash a fire extinguisher.',
-                author: 'Bromley RA'
-            },
-        ],
         response: null
     }),
     methods: {
         async getContent() {
             const response = await this.$prismic.client.query([
-                // With a document type matching "page"
+                // With a document type matching "testimonials"
                 this.$prismic.Predicates.at('document.type', 'testimonials')
             ]);
+
             this.response = response.results;
-            console.log(this.response);
-            console.log(this.response.length);
         }
     },
     created() {
