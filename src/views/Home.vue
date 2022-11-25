@@ -8,12 +8,6 @@
         <iframe src="https://player.vimeo.com/video/676497734?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
 
-      <div class="wedding-wire-cta-container">
-        <a rel='nofollow' target='_blank' href='https://www.weddingwire.com/biz/goodlifeondemandproductions/4e26b1b659a2d4fc.html' title='weddingwire.com'>
-          <img alt='weddingwire.com' src='https://www.weddingwire.com/images/sellos/partner--pp2108165.png' srcset='https://www.weddingwire.com/images/sellos/partner--pp2108165.png 1x, https://www.weddingwire.com/images/sellos/partner--pp2108165.png?largeImg=true 2x' style='border-width:0px;' />
-        </a>
-      </div>
-
       <div class="down-arrow" role="presentation"></div>
     </div>
 
@@ -26,12 +20,6 @@
             <div class="home-headline-copy">
                 <h1 class="title fade-item">{{ fields.title }}</h1>
                 <p class="subtitle fade-item">{{ fields.description }}</p>
-            </div>
-            <div class="wedding-wire-cta-container">
-              <h2>Request more information on WeddingWire!</h2>
-              <a rel='nofollow' target='_blank' href='https://www.weddingwire.com/biz/goodlifeondemandproductions/4e26b1b659a2d4fc.html' title='weddingwire.com'>
-                <img alt='weddingwire.com' src='https://www.weddingwire.com/images/sellos/partner--pp2108165.png' srcset='https://www.weddingwire.com/images/sellos/partner--pp2108165.png 1x, https://www.weddingwire.com/images/sellos/partner--pp2108165.png?largeImg=true 2x' style='border-width:0px;' />
-              </a>
             </div>
           </div>
       </div>
@@ -209,42 +197,7 @@ export default {
   @media screen and (max-width: $screen-xs) {
     max-height: 400px;
   }
-
-  .wedding-wire-cta-container {
-    @media screen and (max-width: $screen-sm) {
-      display: none;
-    }
-  }
 }
-
-.wedding-wire-cta-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 100px;
-    width: 100%;
-
-    a {
-      width: 150px;
-      transition: .3s;
-      display: flex;
-
-      &:hover {
-        transform: scale(1.05);
-        box-shadow: 10px 10px 36px -1px rgba(0,0,0,0.37);
-
-        @media screen and (max-width: $screen-sm) {
-          transform: scale(1.03);
-          box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.3);
-        }
-      }
-
-      img {
-        width: 100%;
-      }
-    }
-  }
 
 .home-bg-video {
     @include center(absolute);
@@ -328,19 +281,6 @@ export default {
 
     @media screen and (max-width: $screen-sm) {
       display: none;
-    }
-  }
-
-  .wedding-wire-cta-container {
-    display: none;
-    position: relative;
-    margin-top: 100px;
-    flex-direction: column;
-    bottom: 0;
-    align-items: flex-start;
-
-    @media screen and (max-width: $screen-sm) {
-      display: flex;
     }
   }
 
