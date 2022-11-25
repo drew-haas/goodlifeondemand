@@ -1,14 +1,14 @@
 <template>
   <div class="home-view">
-    <div class="home-hero" role="presentation">
+    <div class="home-hero">
         <!-- <video class="home-bg-video" autoplay loop muted playsinline>
           <source src="https://goodlifeondemandproductions.s3-us-west-1.amazonaws.com/hall-wedding.mp4" type="video/mp4">
         </video> -->
-      <div class="vimeo-wrapper">
+      <div class="vimeo-wrapper" role="presentation">
         <iframe src="https://player.vimeo.com/video/676497734?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
 
-      <div class="down-arrow"></div>
+      <div class="down-arrow" role="presentation"></div>
     </div>
 
       <div class="home-headline">
@@ -177,7 +177,6 @@ export default {
   background-color: #000;
   background-size: cover;
   background-position: center;
-  z-index: -1;
   position: relative;
   overflow: hidden;
   max-height: 1024px;
@@ -218,7 +217,6 @@ export default {
    left: 0;
    width: 100%;
    height: 100%;
-   z-index: -1;
    pointer-events: none;
    overflow: hidden;
 }
@@ -279,7 +277,6 @@ export default {
     position: absolute;
     top: 0;
     right: -120px;
-    z-index: -1;
     opacity: .9;
 
     @media screen and (max-width: $screen-sm) {
