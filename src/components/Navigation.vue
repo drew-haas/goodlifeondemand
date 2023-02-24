@@ -126,7 +126,7 @@ export default {
         $accent: #13B3BA;
 
         @media screen and (max-width: $screen-sm) {
-            margin-left: 25px;
+            margin-left: 22px;
         }
 
         &:hover {
@@ -142,6 +142,8 @@ export default {
         span {
             display: block;
             text-align: center;
+            margin-bottom: -7px;
+            font-size: 13px;
         }
 
         svg {
