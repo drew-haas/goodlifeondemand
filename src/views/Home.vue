@@ -8,6 +8,8 @@
         <iframe src="https://player.vimeo.com/video/676497734?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
 
+      <a target="_blank" href="https://www.theknot.com/marketplace/redirect-2063910" class="the-knot-link"><img src="../assets/img/the-knot-23.png" alt="The Knot Best of Weddings - 2023 Pick"></a>
+
       <div class="down-arrow" role="presentation"></div>
     </div>
 
@@ -379,6 +381,26 @@ export default {
       background-color: $accent;
       transition: color .3s, background-color .3s;
     }
+  }
+}
+
+.the-knot-link {
+  --size: 110px;
+  --offset: 35px;
+  width: var(--size);
+  height: var(--size);
+  position: absolute;
+  right: var(--offset);
+  bottom: var(--offset);
+
+  @media screen and (max-width: $screen-sm) {
+    --size: 90px;
+    --offset: 20px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
   }
 }
 </style>
