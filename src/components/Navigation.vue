@@ -61,7 +61,7 @@ export default {
 
     .links {
         display: flex;
-        align-items: start; // make sure items align at top and don't receive full height
+        align-items: flex-start; // make sure items align at top and don't receive full height
         padding: 26px 0 0;
     }
 
