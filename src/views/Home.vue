@@ -385,22 +385,8 @@ export default {
 }
 
 .the-knot-link {
-  --size: 110px;
-  --offset: 35px;
-  width: var(--size);
-  height: var(--size);
   position: absolute;
   right: var(--offset);
   bottom: var(--offset);
-
-  @media screen and (max-width: $screen-sm) {
-    --size: 90px;
-    --offset: 20px;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-  }
 }
 </style>
