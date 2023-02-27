@@ -3,8 +3,13 @@
         <div class="overlay-image" :style="{backgroundImage: 'url(' + require('@/assets/img/work-hero.jpg')}"></div>
 
         <section class="weddings-hero">
+          <div class="copy-container">
             <h1>{{fields.title}}</h1>
             <p>{{fields.subtitle}}</p>
+          </div>
+          <div class="image-container">
+            <a target="_blank" href="https://www.theknot.com/marketplace/redirect-2063910" class="the-knot-link"><img src="../assets/img/the-knot-23.png" alt="The Knot Best of Weddings - 2023 Pick"></a>
+          </div>
         </section>
 
         <section class="videos-container">
@@ -120,9 +125,15 @@ export default {
 .weddings-hero {
   max-width: 900px;
   margin: 0 auto 50px;
+  display: flex;
+  justify-content: space-between;
 
   @media screen and (max-width: $screen-sm) {
     margin-top: -37px;
+  }
+
+  .copy-container {
+    padding-right: 30px;
   }
 }
 
@@ -162,6 +173,10 @@ h1 {
       margin-bottom: 70px;
     }
   }
+}
+
+.the-knot-link {
+  display: block;
 }
 </style>
 
