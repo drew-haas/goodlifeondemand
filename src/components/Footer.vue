@@ -13,6 +13,7 @@
         <h2>Social</h2>
         <ul>
           <li><a href="https://vimeo.com/user97759962" target="_blank">Vimeo</a></li>
+          <li><a href="https://www.instagram.com/goodlifeondemandproductions/" target="_blank">Instagram</a></li>
         </ul>
       </div>
     </div>
