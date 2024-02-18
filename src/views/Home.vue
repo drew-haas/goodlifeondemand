@@ -430,9 +430,9 @@ export default {
 
 .down-arrow {
   @media screen and (max-width: $screen-sm) {
-    left: var(--badge-offset);
-    bottom: var(--badge-offset);
-    translate: none;
+    left: calc(var(--badge-offset) * 1.5);
+    bottom: calc(var(--badge-offset) * 2);
+    transform: translateX(0) rotate(-45deg);
   }
 }
 </style>
