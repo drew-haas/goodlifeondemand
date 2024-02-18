@@ -1,38 +1,49 @@
 // keep global styles here
+:root {
+  --badge-size: 110px;
+  --badge-offset: 35px;
+
+  @media screen and (max-width: $screen-sm) {
+    --badge-size: 80px;
+    --badge-offset: 15px;
+  }
+}
+
+
 body {
-	margin: 0;
+  margin: 0;
 }
 
 #app {
-	font-family: 'Avenir', Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	color: $gray-dark;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $gray-dark;
 }
 
 .down-arrow {
-	width: 14px;
-	height: 14px;
-	border-bottom: 2px solid #fff;
-	border-left: 2px solid #fff;
-	position: absolute;
-	bottom: 50px;
-	left: 50%;
-	transform: translateX(-50%) rotate(-45deg);
+  width: 14px;
+  height: 14px;
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-45deg);
 }
 
 .page-wrapper {
-	padding: 200px 0 100px;
-	position: relative;
-	overflow: hidden;
+  padding: 200px 0 100px;
+  position: relative;
+  overflow: hidden;
 
-	@media screen and (max-width: $screen-sm) {
-		padding: 60px 0;
-	}
+  @media screen and (max-width: $screen-sm) {
+    padding: 60px 0;
+  }
 
-	@media screen and (max-width: $screen-xs) {
-		padding: 40px 0;
-	}
+  @media screen and (max-width: $screen-xs) {
+    padding: 40px 0;
+  }
 }
 
 section {
@@ -74,15 +85,9 @@ section {
 }
 
 .the-knot-link {
-  --size: 110px;
-  --offset: 35px;
-  width: var(--size);
-  height: var(--size);
-
-  @media screen and (max-width: $screen-sm) {
-    --size: 90px;
-    --offset: 20px;
-  }
+  width: var(--badge-size);
+  height: var(--badge-size);
+  display: block;
 
   img {
     width: 100%;
