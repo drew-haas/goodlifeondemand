@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "gsap": "^3.6.0",
+    "sass": "^1.71.0",
     "scrollmagic": "^2.0.7",
     "vue": "^2.6.10",
     "vue-gtag": "^1.2.0",
@@ -16,7 +17,6 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.12.1",
     "@vue/cli-service": "^3.12.1",
-    "node-sass": "^4.13.0",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.1.5",
     "prismic-vue": "^2.0.0",
