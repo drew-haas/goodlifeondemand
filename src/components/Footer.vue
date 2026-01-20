@@ -6,12 +6,14 @@
         <ul>
           <li><a href="mailto:GoodLifeOnDemandProductions@gmail.com" class="email">goodlifeondemandproductions@gmail.com</a></li>
           <li><a href="tel:724-986-7862">724-986-7862</a></li>
+          <li>More information on: <a rel='nofollow' target='_blank' href='https://www.weddingwire.com/biz/goodlifeondemandproductions/4e26b1b659a2d4fc.html' title='weddingwire.com'>WeddingWire</a></li>
         </ul>
       </div>
       <div class="footer-column">
         <h2>Social</h2>
         <ul>
           <li><a href="https://vimeo.com/user97759962" target="_blank">Vimeo</a></li>
+          <li><a href="https://www.instagram.com/goodlifeondemandproductions/" target="_blank">Instagram</a></li>
         </ul>
       </div>
     </div>
