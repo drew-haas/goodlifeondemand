@@ -19,6 +19,9 @@
         <a target="_blank" href="https://www.weddingwire.com/biz/goodlifeondemandproductions/4e26b1b659a2d4fc.html"
           class="the-knot-link wedding-wire-24"><img src="../assets/img/wedding-wire-24.png"
             alt="Wedding Wire Couples Choice Awards - 5 Stars - 2024"></a>
+        <a target="_blank" href="https://www.theknot.com/marketplace/redirect-2063910"
+          class="the-knot-link wedding-wire-25"><img src="../assets/img/the-knot-25.svg"
+            alt="The Knot Best of Weddings - 2025 Pick"></a>
       </div>
 
       <div class="down-arrow" role="presentation"></div>
