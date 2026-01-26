@@ -59,6 +59,9 @@
 
     </section>
 
+      <!-- Testimonals Section! -->
+      <Testimonials/>
+
   </div>
 </template>
 
@@ -72,12 +75,14 @@
     type: supports 'vimeo' or 'youtube'
 */
 import VideoSmall from '../components/VideoSmall';
+import Testimonials from '../components/Testimonials';
 import { gsap, Expo } from 'gsap';
 
 export default {
   name: 'home',
   components: {
-    'video-small': VideoSmall
+    'video-small': VideoSmall,
+    Testimonials
   },
   data() {
     return {
@@ -341,17 +346,13 @@ export default {
     color: $gray-lighter;
     z-index: 1;
     position: relative;
-
-    @media screen and (max-width: $screen-sm) {
-      font-size: 56px;
-      padding-bottom: 0;
-    }
   }
 
   .featured-video {
     margin-bottom: 46px;
 
     @media screen and (max-width: $screen-sm) {
+      font-size: 56px;
       margin-bottom: 0;
     }
   }
